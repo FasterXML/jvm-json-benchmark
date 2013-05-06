@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion> 
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+  <groupId>com.fasterxml.perf</groupId>
+  <artifactId>jvm-json-benchmark</artifactId>
+  <name>JVM JSON Benchmark</name>
+  <version>0.5.0-SNAPSHOT</version>
+  <description>Benchmark suite for comparing Java JSON libraries wrt data-binding performance
+  </description>
+  <url>https://github.com/FasterXML/jvm-json-benchmark</url>
+  <scm>
+    <connection>scm:git:git@github.com:FasterXML/jvm-json-benchmark.git</connection>
+    <developerConnection>scm:git:git@github.com:FasterXML/jvm-json-benchmark.git</developerConnection>
+    <url>http://github.com/FasterXML/jvm-json-benchmark</url>    
+    <tag>HEAD</tag>
+  </scm>
+
+  <properties>
+    <jackson.version>2.2.1</jackson.version>
+    <xstream.version>1.4.4</xstream.version>
+    <gson.version>2.2.3</gson.version>
+    <jsontools.version>1.7</jsontools.version>
+    <flexjson.version>3.0</flexjson.version>
+  </properties>
+
+  <dependencies>
+    <!-- First, underlying test framework, Japex -->
+    <dependency>
+      <groupId>com.sun.japex</groupId>
+      <artifactId>japex</artifactId>
+      <version>1.2.4</version>
+    </dependency>
+  
+    <!-- Jackson core libs; enough to depend on databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency> <!--  but needs Smile backend, if we are to test it? -->
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-smile</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <!--  XStream (via Jettison) -->
+    <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>${xstream.version}</version>
+    </dependency>
+    <!--  GSON -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${gson.version}</version>
+    </dependency>
+    <!-- JSON tools -->
+    <dependency>
+      <groupId>com.sdicons.jsontools</groupId>
+      <artifactId>jsontools-core</artifactId>
+      <version>${jsontools.version}</version>
+    </dependency>
+    <!--  Flex JSON -->
+    <dependency>
+      <groupId>net.sf.flexjson</groupId>
+      <artifactId>flexjson</artifactId>
+      <version>${flexjson.version}</version>
+    </dependency>
+
+
+  </dependencies>
+</project>
