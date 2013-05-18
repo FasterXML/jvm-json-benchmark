@@ -1,4 +1,4 @@
-package org.codehaus.staxbind.dbconv;
+package com.fasterxml.staxbind.dbconv;
 
 import java.io.*;
 import java.util.*;
@@ -66,6 +66,7 @@ public class StaxXmlConverter
         return result;
     }
 
+    @Override
     public int writeData(OutputStream out, DbData data) throws Exception
     {
         XMLStreamWriter sw = _staxOutFactory.createXMLStreamWriter(out, "UTF-8");
