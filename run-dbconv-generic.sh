@@ -1,7 +1,7 @@
 #!/bin/sh
 
 java -cp lib/\* \
- -Djapex.inputDir=data/db-medium/db100.xml \
+ -Djapex.inputDir=data/db-medium/ \
  -Djapex.warmupTime=5 \
  -Djapex.runTime=15 \
  -Djapex.warmupsPerDriver=1 \
