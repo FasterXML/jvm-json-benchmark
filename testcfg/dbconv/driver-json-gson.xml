@@ -1,0 +1,14 @@
+<driverGroup name="jsonDriversGson"
+  xmlns="http://www.sun.com/japex/testSuite"
+>
+      <driver name="Json/Gson">
+        <description><div xmlns=""><p>Test driver for JSON (text) that uses Google-Gson</p></div></description>
+        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.GsonDriver" />
+        <param name="japex.classPath" value="build/classes"/>
+        <param name="japex.classPath" value="lib/*.jar"/>
+        <param name="japex.classPath" value="lib/gson/*.jar"/>
+        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
+      </driver>
+
+</driverGroup>
+

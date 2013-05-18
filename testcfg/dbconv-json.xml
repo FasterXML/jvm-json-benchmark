@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testSuite name="Test suite for Json drivers" xmlns="http://www.sun.com/japex/testSuite"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+>
+    <description><div xmlns=""><p>
+Micro-benchmark for testing simple data binding using dbdump(-like) data,
+running on Json converters
+</p></div></description>
+
+    <!-- Drivers -->
+    <xi:include href="dbconv/drivers-json.xml" />
+
+    <!-- Test cases -->
+
+<!-- Test case for mapping data into item objects -->
+
+<!-- Mapping (read, parsing to objects) -->
+<testCase name='read-to-object'>
+      <param name='japex.operation' value='READ' />
+</testCase>
+
+<!-- Serialization (write) -->
+<testCase name='write-from-object'>
+      <param name='japex.operation' value='WRITE' />
+</testCase>
+
+<!-- Both -->
+<testCase name='read-map-write'>
+      <param name='japex.operation' value='READ_WRITE' />
+</testCase>
+
+</testSuite>

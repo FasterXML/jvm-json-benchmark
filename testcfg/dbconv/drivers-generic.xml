@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Definition of all Json-backed test drivers
+  -->
+
+<driverGroup name="genericDrivers"
+  xmlns="http://www.sun.com/japex/testSuite"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+>
+    <!-- leading Xml candidates -->
+
+<!--
+    <xi:include href="driver-xml-xstream.xml" />
+-->
+    <xi:include href="driver-xml-jaxb-woodstox.xml" />
+    <xi:include href="driver-xml-jaxb-aalto.xml" />
+    <xi:include href="driver-xml-stax2-woodstox.xml" />
+    <xi:include href="driver-xml-stax2-aalto.xml" />
+
+    <!-- leading Json candidates -->
+    <xi:include href="driver-json-jackson.xml" />
+    <!--  too slow, skip
+    <xi:include href="driver-json-gson.xml" />
+     -->
+
+    <!-- Binary alternatives -->
+    <xi:include href="driver-hessian.xml" />
+    <xi:include href="driver-jdk-serialization.xml" />
+
+</driverGroup>
+

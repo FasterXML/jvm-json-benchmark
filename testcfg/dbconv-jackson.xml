@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testSuite name="Test suite for Json drivers" xmlns="http://www.sun.com/japex/testSuite"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+>
+    <description><div xmlns=""><p>
+Micro-benchmark for testing performance of different Jackson versions, using dbdump(-like) data.
+</p></div></description>
+
+    <!-- Drivers -->
+  <driverGroup name="jsonDriversJackson" xmlns="http://www.sun.com/japex/testSuite">
+      <driver name="Jackson-1.2">
+        <description><div xmlns=""><p>Test driver for Jackson 1.2</p></div></description>
+        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.JacksonDriverAutomatic" />
+        <param name="japex.classPath" value="build/classes"/>
+        <param name="japex.classPath" value="lib/*.jar"/>
+        <param name="japex.classPath" value="lib/jackson-1.2/*.jar"/>
+        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
+      </driver>
+
+      <driver name="Jackson-1.4">
+        <description><div xmlns=""><p>Test driver for Jackson 1.4</p></div></description>
+        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.JacksonDriverAutomatic" />
+        <param name="japex.classPath" value="build/classes"/>
+        <param name="japex.classPath" value="lib/*.jar"/>
+        <param name="japex.classPath" value="lib/jackson-1.4/*.jar"/>
+        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
+      </driver>
+
+      <driver name="Jackson-1.6>
+        <description><div xmlns=""><p>Test driver for Jackson 1.6</p></div></description>
+        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.JacksonDriverAutomatic" />
+        <param name="japex.classPath" value="build/classes"/>
+        <param name="japex.classPath" value="lib/*.jar"/>
+        <param name="japex.classPath" value="lib/jackson-1.6/*.jar"/>
+        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
+      </driver>
+
+      <driver name="Jackson-2.1>
+        <description><div xmlns=""><p>Test driver for Jackson 2.1</p></div></description>
+        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.Jackson2DriverAutomatic" />
+        <param name="japex.classPath" value="build/classes"/>
+        <param name="japex.classPath" value="lib/*.jar"/>
+        <param name="japex.classPath" value="lib/jackson-2.1/*.jar"/>
+        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
+      </driver>
+  </driverGroup>
+
+    <!-- Test cases -->
+
+<!-- Test case for mapping data into item objects -->
+
+<!-- Mapping (read, parsing to objects) -->
+<testCase name='read-to-object'>
+      <param name='japex.operation' value='READ' />
+</testCase>
+
+<!-- Serialization (write) -->
+<testCase name='write-from-object'>
+      <param name='japex.operation' value='WRITE' />
+</testCase>
+
+<!-- Both -->
+<testCase name='read-map-write'>
+      <param name='japex.operation' value='READ_WRITE' />
+</testCase>
+
+</testSuite>

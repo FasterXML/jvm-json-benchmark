@@ -1,0 +1,14 @@
+<driverGroup name="jsonDriversJsonTools"
+  xmlns="http://www.sun.com/japex/testSuite"
+>
+      <driver name="Json/JsonTools">
+        <description><div xmlns=""><p>Test driver for JSON (text) that uses BerliOS Json-tools</p></div></description>
+        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.JsonToolsDriver" />
+        <param name="japex.classPath" value="build/classes"/>
+        <param name="japex.classPath" value="lib/*.jar"/>
+        <param name="japex.classPath" value="lib/json-tools/*.jar"/>
+        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
+      </driver>
+
+</driverGroup>
+
