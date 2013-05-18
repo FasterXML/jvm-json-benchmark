@@ -3,28 +3,19 @@
 >
 
       <!-- Jackson json processor; streaming (manual) -->
-      <driver name="Json/jackson1/manual">
-        <description><div xmlns=""><p>Test driver for JSON (text) that uses Jackson 1x (MANUAL)</p></div></description>
+      <driver name="Json/jackson/manual">
+        <description><div xmlns=""><p>Test driver for JSON (text) that uses Jackson 2 (MANUAL)</p></div></description>
         <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.JacksonDriverManual" />
-        <param name="japex.classPath" value="build/classes"/>
+        <param name="japex.classPath" value="target/classes"/>
         <param name="japex.classPath" value="lib/*.jar"/>
         <param name="japex.classPath" value="lib/jackson/*.jar"/>
       </driver>
 
-      <!-- Jackson json processor; streaming (data-binding) -->
-      <driver name="Json/jackson1/auto">
-        <description><div xmlns=""><p>Test driver for JSON (text) that uses Jackson 1x (AUTO)</p></div></description>
-        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.JacksonDriverAutomatic" />
-        <param name="japex.classPath" value="build/classes"/>
-        <param name="japex.classPath" value="lib/*.jar"/>
-        <param name="japex.classPath" value="lib/jackson/*.jar"/>
-      </driver>
-
-      <!-- Jackson 2.x; streaming (data-binding) -->
-      <driver name="Json/jackson2/auto">
+      <!-- Jackson, data-binding -->
+      <driver name="Json/jackson/auto">
         <description><div xmlns=""><p>Test driver for JSON (text) that uses Jackson2 (AUTO)</p></div></description>
-        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.Jackson2DriverAutomatic" />
-        <param name="japex.classPath" value="build/classes"/>
+        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.JacksonDriverAutomatic" />
+        <param name="japex.classPath" value="target/classes"/>
         <param name="japex.classPath" value="lib/*.jar"/>
         <param name="japex.classPath" value="lib/jackson-2.1/*.jar"/>
       </driver>
