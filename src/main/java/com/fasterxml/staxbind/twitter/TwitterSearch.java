@@ -1,10 +1,10 @@
-package org.codehaus.staxbind.twitter;
+package com.fasterxml.staxbind.twitter;
 
 import java.util.*;
 
 import javax.xml.bind.annotation.*;
 
-import org.codehaus.staxbind.std.StdItem;
+import com.fasterxml.staxbind.std.StdItem;
 
 @SuppressWarnings("serial")
 @XmlRootElement(name="searchResult") // needed by JAXB
@@ -27,9 +27,9 @@ public class TwitterSearch
     public int size() { return getResults().size(); }
 
     /*
-    ///////////////////////////////////////////////////
-    // Std methods
-    ///////////////////////////////////////////////////
+    /**********************************************************************
+    /* Std methods
+    /**********************************************************************
      */
 
     @Override
@@ -48,9 +48,9 @@ public class TwitterSearch
     }
 
     /*
-    ///////////////////////////////////////////////////
-    // Helper class
-    ///////////////////////////////////////////////////
+    /**********************************************************************
+    /* Helper class
+    /**********************************************************************
      */
 
     public final static class Entry

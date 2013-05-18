@@ -1,4 +1,4 @@
-package org.codehaus.staxbind.std;
+package com.fasterxml.staxbind.std;
 
 /**
  * Base class for serializable objects used for data binding tests.
@@ -13,9 +13,9 @@ public abstract class StdItem<T extends StdItem<?>>
     protected StdItem() { }
 
     /*
-    ///////////////////////////////////////////////////
-    // Std methods, abstracts added
-    ///////////////////////////////////////////////////
+    /**********************************************************************
+    /* Std methods, abstracts added
+    /**********************************************************************
      */
 
     @SuppressWarnings("unchecked")

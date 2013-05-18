@@ -2,7 +2,7 @@ package com.fasterxml.staxbind.dbconv;
 
 import java.io.*;
 
-import org.codehaus.staxbind.std.StdConverter;
+import com.fasterxml.staxbind.std.StdConverter;
 
 /**
  * Base class for per-format converters used for "DB Converter" performance

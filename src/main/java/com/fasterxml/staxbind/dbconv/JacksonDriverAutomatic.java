@@ -1,6 +1,6 @@
 package com.fasterxml.staxbind.dbconv;
 
-import org.codehaus.staxbind.std.StdJacksonConverter;
+import com.fasterxml.staxbind.std.StdJacksonConverter;
 
 /**
  * Driver that uses "automatic" (bean/annotation-based) serialization with

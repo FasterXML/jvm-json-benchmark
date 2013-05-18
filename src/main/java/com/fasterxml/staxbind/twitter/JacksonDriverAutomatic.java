@@ -1,6 +1,6 @@
-package org.codehaus.staxbind.twitter;
+package com.fasterxml.staxbind.twitter;
 
-import org.codehaus.staxbind.std.StdJacksonConverter;
+import com.fasterxml.staxbind.std.StdJacksonConverter;
 
 /**
  * Driver that uses "automatic" (bean/annotation-based) serialization with

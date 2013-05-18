@@ -1,8 +1,8 @@
-package org.codehaus.staxbind.twitter;
+package com.fasterxml.staxbind.twitter;
 
 import java.io.*;
 
-import org.codehaus.staxbind.std.StdConverter;
+import com.fasterxml.staxbind.std.StdConverter;
 
 /**
  * Base class for per-format converters used for "DB Converter" performance

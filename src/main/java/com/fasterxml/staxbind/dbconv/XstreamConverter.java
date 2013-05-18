@@ -1,8 +1,8 @@
 package com.fasterxml.staxbind.dbconv;
 
+import com.fasterxml.staxbind.std.StdXstreamConverter;
 import com.sun.japex.Params;
 
-import org.codehaus.staxbind.std.StdXstreamConverter;
 
 /**
  * Converter that uses XStream on top of regular Stax 1

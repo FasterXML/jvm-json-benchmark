@@ -4,8 +4,9 @@ import java.io.*;
 // stax needed to get in baseline data
 import javax.xml.stream.*;
 
-import org.codehaus.staxbind.japex.BaseJapexDriver;
-import org.codehaus.staxbind.std.StdConverter;
+
+import com.fasterxml.staxbind.japex.BaseJapexDriver;
+import com.fasterxml.staxbind.std.StdConverter;
 
 public abstract class DbconvDriver
     extends BaseJapexDriver<DbConverter.Operation>

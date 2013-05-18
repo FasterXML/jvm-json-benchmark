@@ -1,6 +1,6 @@
 package com.fasterxml.staxbind.dbconv;
 
-import org.codehaus.staxbind.std.StdFlexJsonConverter;
+import com.fasterxml.staxbind.std.StdFlexJsonConverter;
 
 /**
  * Driver that uses FlexJson-based data binding for JSON serialization

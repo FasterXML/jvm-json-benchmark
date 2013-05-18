@@ -1,4 +1,4 @@
-package org.codehaus.staxbind.std;
+package com.fasterxml.staxbind.std;
 
 import java.io.*;
 

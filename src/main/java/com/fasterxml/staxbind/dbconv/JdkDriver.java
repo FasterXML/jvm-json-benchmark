@@ -1,6 +1,6 @@
 package com.fasterxml.staxbind.dbconv;
 
-import org.codehaus.staxbind.std.StdJdkConverter;
+import com.fasterxml.staxbind.std.StdJdkConverter;
 
 public final class JdkDriver
     extends DbconvDriver

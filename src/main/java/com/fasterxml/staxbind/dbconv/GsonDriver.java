@@ -1,6 +1,6 @@
 package com.fasterxml.staxbind.dbconv;
 
-import org.codehaus.staxbind.std.StdGsonConverter;
+import com.fasterxml.staxbind.std.StdGsonConverter;
 
 /**
  * Driver that uses Gson-based data binding for JSON serialization

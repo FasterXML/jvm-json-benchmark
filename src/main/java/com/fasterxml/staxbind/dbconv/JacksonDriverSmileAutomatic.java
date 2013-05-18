@@ -1,6 +1,6 @@
 package com.fasterxml.staxbind.dbconv;
 
-import org.codehaus.staxbind.std.StdSmileConverter;
+import com.fasterxml.staxbind.std.StdSmileConverter;
 
 /**
  * Driver that uses automatic (bean/annotation-based) serialization with

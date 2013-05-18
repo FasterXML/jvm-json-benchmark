@@ -1,6 +1,6 @@
 package com.fasterxml.staxbind.dbconv;
 
-import org.codehaus.staxbind.std.StdJsonToolsConverter;
+import com.fasterxml.staxbind.std.StdJsonToolsConverter;
 
 /**
  * Driver that uses Json-tools-based data binding for JSON serialization

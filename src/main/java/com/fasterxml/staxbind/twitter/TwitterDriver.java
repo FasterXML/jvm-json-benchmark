@@ -1,9 +1,10 @@
-package org.codehaus.staxbind.twitter;
+package com.fasterxml.staxbind.twitter;
 
 import java.io.*;
 
-import org.codehaus.staxbind.japex.BaseJapexDriver;
-import org.codehaus.staxbind.std.StdConverter;
+
+import com.fasterxml.staxbind.japex.BaseJapexDriver;
+import com.fasterxml.staxbind.std.StdConverter;
 
 public abstract class TwitterDriver
     extends BaseJapexDriver<TwitterConverter.Operation>
