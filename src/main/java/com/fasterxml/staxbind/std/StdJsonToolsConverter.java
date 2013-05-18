@@ -2,6 +2,8 @@ package com.fasterxml.staxbind.std;
 
 import java.io.*;
 
+import com.fasterxml.staxbind.StdConverter;
+import com.fasterxml.staxbind.StdItem;
 import com.sdicons.json.mapper.JSONMapper;
 import com.sdicons.json.model.JSONValue;
 import com.sdicons.json.parser.JSONParser;

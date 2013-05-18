@@ -2,6 +2,8 @@ package com.fasterxml.staxbind.std;
 
 import java.io.*;
 
+import com.fasterxml.staxbind.StdConverter;
+import com.fasterxml.staxbind.StdItem;
 import com.google.gson.*;
 
 /**

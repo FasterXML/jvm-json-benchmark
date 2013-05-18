@@ -1,4 +1,4 @@
-package com.fasterxml.staxbind.std;
+package com.fasterxml.staxbind;
 
 /**
  * Base class for serializable objects used for data binding tests.

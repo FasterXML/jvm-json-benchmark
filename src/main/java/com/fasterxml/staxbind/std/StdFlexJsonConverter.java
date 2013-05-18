@@ -3,6 +3,9 @@ package com.fasterxml.staxbind.std;
 import java.io.*;
 import java.util.Arrays;
 
+import com.fasterxml.staxbind.StdConverter;
+import com.fasterxml.staxbind.StdItem;
+
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 

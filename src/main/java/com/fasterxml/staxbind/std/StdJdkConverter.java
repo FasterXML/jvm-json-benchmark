@@ -2,6 +2,9 @@ package com.fasterxml.staxbind.std;
 
 import java.io.*;
 
+import com.fasterxml.staxbind.StdConverter;
+import com.fasterxml.staxbind.StdItem;
+
 /**
  * Templatized version of the JDK Serialization based converter.
  */

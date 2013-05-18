@@ -4,6 +4,8 @@ import java.io.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.smile.SmileFactory;
+import com.fasterxml.staxbind.StdConverter;
+import com.fasterxml.staxbind.StdItem;
 
 /**
  * Converter that uses Jackson JSON processor with its binary JSON-compatible

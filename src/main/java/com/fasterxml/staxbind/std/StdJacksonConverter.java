@@ -4,6 +4,8 @@ import java.io.*;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.*;
+import com.fasterxml.staxbind.StdConverter;
+import com.fasterxml.staxbind.StdItem;
 
 /**
  * Converter that uses Jackson JSON processor (v2.x) for data binding,

@@ -1,6 +1,7 @@
-package com.fasterxml.staxbind.std;
+package com.fasterxml.staxbind;
 
 import java.io.*;
+
 
 /**
  * Base class for "standard" converters used for data binding

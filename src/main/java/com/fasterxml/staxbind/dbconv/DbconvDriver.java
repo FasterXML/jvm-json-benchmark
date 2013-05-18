@@ -5,8 +5,8 @@ import java.io.*;
 import javax.xml.stream.*;
 
 
+import com.fasterxml.staxbind.StdConverter;
 import com.fasterxml.staxbind.japex.BaseJapexDriver;
-import com.fasterxml.staxbind.std.StdConverter;
 
 public abstract class DbconvDriver
     extends BaseJapexDriver<DbConverter.Operation>

@@ -4,7 +4,7 @@ import java.util.*;
 
 import javax.xml.bind.annotation.*;
 
-import com.fasterxml.staxbind.std.StdItem;
+import com.fasterxml.staxbind.StdItem;
 
 /**
  * Simple bean class to contain all "DB data" read from data files.

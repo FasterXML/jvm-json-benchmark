@@ -3,8 +3,8 @@ package com.fasterxml.staxbind.twitter;
 import java.io.*;
 
 
+import com.fasterxml.staxbind.StdConverter;
 import com.fasterxml.staxbind.japex.BaseJapexDriver;
-import com.fasterxml.staxbind.std.StdConverter;
 
 public abstract class TwitterDriver
     extends BaseJapexDriver<TwitterConverter.Operation>
