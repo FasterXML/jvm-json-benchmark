@@ -11,7 +11,7 @@ java -server -cp lib/\* \
  -Djapex.runTime=30 \
  -Djapex.numberOfThreads=1 \
  -Djapex.reportsDirectory=japex-reports \
- -Djapex.inputDir=data/db100.xml \
+ -Djapex.inputDir=data/db-medium/db100.xml \
  com.sun.japex.Japex \
  testcfg/dbconv-json.xml
 
