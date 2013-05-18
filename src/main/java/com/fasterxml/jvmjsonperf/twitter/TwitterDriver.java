@@ -83,10 +83,11 @@ public abstract class TwitterDriver
         _totalLength = 0;
 
         File[] files = dir.listFiles(new FilenameFilter() {
-                public boolean accept(File dir, String name) {
-                    return name.endsWith(".jsn");
-                }
-            });
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".jsn");
+            }
+        });
 
         StdConverter<TwitterSearch> stdConverter = getStdConverter();
         _readableData = (oper == StdConverter.Operation.WRITE) ?

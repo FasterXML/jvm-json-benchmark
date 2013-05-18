@@ -3,7 +3,7 @@
 >
       <driver name="Json/FlexJson">
         <description><div xmlns=""><p>Test driver for JSON (text) that uses Flex-Json</p></div></description>
-        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.FlexJsonDriver" />
+        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.FlexJsonDriver" />
         <param name="japex.classPath" value="build/classes"/>
         <param name="japex.classPath" value="lib/*.jar"/>
         <param name="japex.classPath" value="lib/flexjson/*.jar"/>

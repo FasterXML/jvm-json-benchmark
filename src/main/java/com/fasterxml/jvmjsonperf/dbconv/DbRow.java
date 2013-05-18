@@ -18,24 +18,31 @@ public final class DbRow
 {
     public enum Field {
         id {
+            @Override
             public void setValue(DbRow row, String value) { row.setId(Long.parseLong(value)); }
         }
         ,firstname {
+            @Override
             public void setValue(DbRow row, String value) { row.setFirstname(value); }
         }
         ,lastname {
+            @Override
             public void setValue(DbRow row, String value) { row.setLastname(value); }
         }
         ,zip {
+            @Override
             public void setValue(DbRow row, String value) { row.setZip(Integer.parseInt(value)); }
         }
         ,street {
+            @Override
             public void setValue(DbRow row, String value) { row.setStreet(value); }
         }
         ,city {
+            @Override
             public void setValue(DbRow row, String value) { row.setCity(value); }
         }
         ,state {
+            @Override
             public void setValue(DbRow row, String value) { row.setState(value); }
         }
         ;

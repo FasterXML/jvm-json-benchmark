@@ -1,69 +1,44 @@
 <driverGroup name="jsonDriversJackson"
   xmlns="http://www.sun.com/japex/testSuite"
 >
-      <!-- Jackson json processor; streaming (manual) + LZF -->
-<!--
-      <driver name="Json/jackson1/LZH+manual">
-        <description><div xmlns=""><p>Test driver for JSON (text) that uses Jackson 1x, LZF (MANUAL)</p></div></description>
-        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.JacksonDriverManualLZF" />
-        <param name="japex.classPath" value="build/classes"/>
-        <param name="japex.classPath" value="lib/*.jar"/>
-        <param name="japex.classPath" value="lib/jackson/*.jar"/>
-        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
-      </driver>
--->
-
-      <!-- Jackson json processor; streaming (manual) + GZIP -->
-<!--
-      <driver name="Json/jackson1/GZIP+manual">
-        <description><div xmlns=""><p>Test driver for JSON (text) that uses Jackson 1x, GZIP (MANUAL)</p></div></description>
-        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.JacksonDriverManualGzip" />
-        <param name="japex.classPath" value="build/classes"/>
-        <param name="japex.classPath" value="lib/*.jar"/>
-        <param name="japex.classPath" value="lib/jackson/*.jar"/>
-        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
-      </driver>
--->
 
       <!-- Jackson json processor; streaming (manual) -->
       <driver name="Json/jackson1/manual">
         <description><div xmlns=""><p>Test driver for JSON (text) that uses Jackson 1x (MANUAL)</p></div></description>
-        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.JacksonDriverManual" />
+        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.JacksonDriverManual" />
         <param name="japex.classPath" value="build/classes"/>
         <param name="japex.classPath" value="lib/*.jar"/>
         <param name="japex.classPath" value="lib/jackson/*.jar"/>
-        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
       </driver>
 
       <!-- Jackson json processor; streaming (data-binding) -->
       <driver name="Json/jackson1/auto">
         <description><div xmlns=""><p>Test driver for JSON (text) that uses Jackson 1x (AUTO)</p></div></description>
-        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.JacksonDriverAutomatic" />
+        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.JacksonDriverAutomatic" />
         <param name="japex.classPath" value="build/classes"/>
         <param name="japex.classPath" value="lib/*.jar"/>
         <param name="japex.classPath" value="lib/jackson/*.jar"/>
-        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
       </driver>
 
       <!-- Jackson 2.x; streaming (data-binding) -->
       <driver name="Json/jackson2/auto">
         <description><div xmlns=""><p>Test driver for JSON (text) that uses Jackson2 (AUTO)</p></div></description>
-        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.Jackson2DriverAutomatic" />
+        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.Jackson2DriverAutomatic" />
         <param name="japex.classPath" value="build/classes"/>
         <param name="japex.classPath" value="lib/*.jar"/>
         <param name="japex.classPath" value="lib/jackson-2.1/*.jar"/>
-        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
       </driver>
 
       <!-- Jackson json processor; data-binding w/ Smile format -->
+<!--
       <driver name="Smile/jackson1-smile/auto">
         <description><div xmlns=""><p>Test driver for Smile that uses Jackson 1.x (AUTO)</p></div></description>
-        <param name="japex.driverClass" value="org.codehaus.staxbind.dbconv.JacksonDriverSmileAutomatic" />
+        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.JacksonDriverSmileAutomatic" />
         <param name="japex.classPath" value="build/classes"/>
         <param name="japex.classPath" value="lib/*.jar"/>
         <param name="japex.classPath" value="lib/jackson/*.jar"/>
-        <param name="japex.classPath" value="lib/wstx3/*.jar"/>
       </driver>
+-->
 
 </driverGroup>
 

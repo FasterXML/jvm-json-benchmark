@@ -85,7 +85,8 @@ public abstract class DbconvDriver
         _totalLength = 0;
 
         File[] files = dir.listFiles(new FilenameFilter() {
-                public boolean accept(File dir, String name) {
+            @Override
+            public boolean accept(File dir, String name) {
                     return name.endsWith(".xml");
                 }
             });
