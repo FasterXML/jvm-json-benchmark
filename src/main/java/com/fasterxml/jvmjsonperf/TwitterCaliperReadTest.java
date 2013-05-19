@@ -36,15 +36,14 @@ public class TwitterCaliperReadTest
     /**********************************************************************
      */
 
-    protected static ObjectReader _jacksonReader = new ObjectMapper().reader(TwitterSearch.class);
+//    protected static ObjectReader _jacksonReader = new ObjectMapper().reader(TwitterSearch.class);
+    protected ObjectReader _jacksonReader;
     
     public Object timeJacksonDatabind(long reps) throws Exception
     {
-        /*
         if (_jacksonReader == null) {
             _jacksonReader = new ObjectMapper().reader(TwitterSearch.class);
         }
-        */
         TwitterSearch result = null;
         
         while (--reps >= 0) {
@@ -53,15 +52,14 @@ public class TwitterCaliperReadTest
         return result;
     }
 
-    protected static Gson _gson = new Gson();
+//    protected static Gson _gson = new Gson();
+    protected Gson _gson;
     
     public Object timeGsonDatabind(long reps) throws Exception
     {
-        /*
         if (_gson == null) {
             _gson = new Gson();
         }
-        */
         TwitterSearch result = null;
         while (--reps >= 0) {
             result = _gson.fromJson(new InputStreamReader(inputStream(), "UTF-8"), TwitterSearch.class);
@@ -69,15 +67,14 @@ public class TwitterCaliperReadTest
         return result;
     }
 
-    protected static Genson _genson = new Genson();
+//    protected static Genson _genson = new Genson();
+    protected Genson _genson = new Genson();
 
     public Object timeGensonDatabind(long reps) throws Exception
     {
-        /*
         if (_genson == null) {
             _genson = new Genson();
         }
-        */
         TwitterSearch result = null;
         while (--reps >= 0) {
             result = _genson.deserialize(new InputStreamReader(inputStream(), "UTF-8"), TwitterSearch.class);
