@@ -8,6 +8,9 @@ import com.fasterxml.jvmjsonperf.twitter.TwitterSearch;
 
 import com.google.caliper.Param;
 import com.google.gson.Gson;
+import com.sdicons.json.mapper.JSONMapper;
+import com.sdicons.json.model.JSONValue;
+import com.sdicons.json.parser.JSONParser;
 
 public class TwitterCaliperReadTest
     extends CaliperTestBase
@@ -17,10 +20,6 @@ public class TwitterCaliperReadTest
 
     protected byte[] _data;
     
-    protected ObjectReader _jacksonReader;
-    
-    protected Gson _gson;
-
     @Override
     protected void setUp() throws IOException
     {
@@ -32,8 +31,10 @@ public class TwitterCaliperReadTest
     /* Test methods
     /**********************************************************************
      */
+
+    protected ObjectReader _jacksonReader;
     
-    public Object timeJacksonDatabind(int reps) throws Exception
+    public Object timeJacksonDatabind(long reps) throws Exception
     {
         if (_jacksonReader == null) {
             _jacksonReader = new ObjectMapper().reader(TwitterSearch.class);
@@ -46,14 +47,33 @@ public class TwitterCaliperReadTest
         return result;
     }
 
-    public Object timeGsonDatabind(int reps) throws Exception
+    protected Gson _gson;
+    
+    public Object timeGsonDatabind(long reps) throws Exception
     {
         if (_gson == null) {
             _gson = new Gson();
         }
-        return _gson.fromJson(new InputStreamReader(inputStream(), "UTF-8"), TwitterSearch.class);
+        TwitterSearch result = null;
+        while (--reps >= 0) {
+            result = _gson.fromJson(new InputStreamReader(inputStream(), "UTF-8"), TwitterSearch.class);
+        }
+        return result;
     }
 
+    public Object timeJsontoolsDatabind(long reps) throws Exception
+    {
+        TwitterSearch result = null;
+        while (--reps >= 0) {
+            InputStream in = inputStream();
+            JSONParser jp = new JSONParser(in);
+            JSONValue v = jp.nextValue();
+            result = (TwitterSearch) JSONMapper.toJava(v, TwitterSearch.class);
+            in.close();
+        }
+        return result;
+    }
+    
     /*
     /**********************************************************************
     /* Internal methods
