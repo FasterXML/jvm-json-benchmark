@@ -23,19 +23,24 @@
   <properties>
     <jackson.version>2.2.1</jackson.version>
     <xstream.version>1.4.4</xstream.version>
-    <gson.version>2.2.3</gson.version>
+    <gson.version>2.2.4</gson.version>
     <jsontools.version>1.7</jsontools.version>
     <flexjson.version>3.0</flexjson.version>
   </properties>
 
   <dependencies>
-    <!-- First, underlying test framework, Japex -->
+    <!-- First, underlying test framework(s): japex and/or caliper -->
     <dependency>
       <groupId>com.sun.japex</groupId>
       <artifactId>japex</artifactId>
       <version>1.2.4</version>
     </dependency>
-  
+	<dependency>
+	  <groupId>com.google.caliper</groupId>
+	  <artifactId>caliper</artifactId>
+	  <version>1.0-beta-1</version>
+	</dependency>
+
     <!-- Jackson core libs; enough to depend on databind -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -75,4 +80,44 @@
 
 
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>1.6</version>
+        <configuration>
+          <createDependencyReducedPom>true</createDependencyReducedPom>
+          <filters>
+            <filter>
+                <artifact>*:*</artifact>
+                <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                </excludes>
+            </filter>
+          </filters>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+                <goal>shade</goal>
+            </goals>
+            <configuration>
+                <createSourcesJar>true</createSourcesJar>
+                <transformers>
+                    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                        <mainClass>com.fasterxml.jvmjsonperf.CaliperLauncher</mainClass>
+                    </transformer>
+                </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

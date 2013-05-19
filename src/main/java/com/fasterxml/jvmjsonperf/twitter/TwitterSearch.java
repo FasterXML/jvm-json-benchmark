@@ -13,6 +13,14 @@ public class TwitterSearch
 {
     private List<Entry> _results;
 
+    public long since_id, max_id;
+    public int page;
+    public int results_per_page;
+    public String query;
+    public String refresh_url;
+    public String next_page;
+    public double completed_in;
+    
     public TwitterSearch() { }
 
     public List<Entry> getResults() {
@@ -55,22 +63,15 @@ public class TwitterSearch
 
     public final static class Entry
     {
-        int _id;
-        String _text;
-        String _from_user, _to_user;
-        int _from_user_id, _to_user_id;
-        String _iso_language_code;
-        String _profile_image_url;
-        String _Created_at;
-
+        public int id;
+        public String text;
+        public String from_user, to_user;
+        public int from_user_id, to_user_id;
+        public String iso_language_code;
+        public String profile_image_url;
+        public String created_at;
+        
         public Entry() { }
-
-        public int getId() { return _id; }
-        public int getfrom_user_id() { return _from_user_id; }
-        public int getto_user_id() { return _to_user_id; }
-
-        public String getfrom_user() { return _from_user; }
-        public String getto_user() { return _to_user; }
     }
 }
 
