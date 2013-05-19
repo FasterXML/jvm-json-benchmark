@@ -2,12 +2,9 @@ package com.fasterxml.jvmjsonperf.twitter;
 
 import java.util.*;
 
-import javax.xml.bind.annotation.*;
-
 import com.fasterxml.jvmjsonperf.StdItem;
 
 @SuppressWarnings("serial")
-@XmlRootElement(name="searchResult") // needed by JAXB
 public class TwitterSearch
     extends StdItem<TwitterSearch>
 {
@@ -34,6 +31,20 @@ public class TwitterSearch
 
     public int size() { return getResults().size(); }
 
+    // // // Setters for whoever needs them
+    
+    public void setSince_id(long l) { since_id = l; }
+    public void setMax_id(long l) { max_id = l; }
+
+    public void setPage(int i) { page = i; }
+    public void setResults_per_page(int i) { results_per_page = i; }
+    
+    public void setQuery(String s) { query = s; }
+    public void setRefresh_url(String s) { refresh_url = s; }
+    public void setNext_page(String s) { next_page = s; }
+
+    public void setCompleted_in(double d) { completed_in = d; }
+    
     /*
     /**********************************************************************
     /* Std methods
@@ -72,6 +83,18 @@ public class TwitterSearch
         public String created_at;
         
         public Entry() { }
+
+        public void setId(int v) { id = v; }
+        public void setText(String v) { text = v; }
+
+        public void setFrom_user_id(int v) { from_user_id = v; }
+        public void setTo_user_id(int v) { to_user_id = v; }
+        
+        public void setFrom_user(String v) { from_user = v; }
+        public void setTo_user(String v) { to_user = v; }
+        public void setIso_language_code(String v) { iso_language_code = v; }
+        public void setProfile_image_url(String v) { profile_image_url = v; }
+        public void setCreated_at(String v) { created_at = v; }
     }
 }
 
