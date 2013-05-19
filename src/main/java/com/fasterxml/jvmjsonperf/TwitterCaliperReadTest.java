@@ -2,7 +2,6 @@ package com.fasterxml.jvmjsonperf;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.util.Arrays;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
@@ -10,6 +9,7 @@ import com.fasterxml.jvmjsonperf.twitter.TwitterSearch;
 
 import com.google.caliper.Param;
 import com.google.gson.Gson;
+import com.owlike.genson.Genson;
 import com.sdicons.json.mapper.JSONMapper;
 import com.sdicons.json.model.JSONValue;
 import com.sdicons.json.parser.JSONParser;
@@ -36,13 +36,15 @@ public class TwitterCaliperReadTest
     /**********************************************************************
      */
 
-    protected ObjectReader _jacksonReader;
+    protected static ObjectReader _jacksonReader = new ObjectMapper().reader(TwitterSearch.class);
     
     public Object timeJacksonDatabind(long reps) throws Exception
     {
+        /*
         if (_jacksonReader == null) {
             _jacksonReader = new ObjectMapper().reader(TwitterSearch.class);
         }
+        */
         TwitterSearch result = null;
         
         while (--reps >= 0) {
@@ -51,13 +53,15 @@ public class TwitterCaliperReadTest
         return result;
     }
 
-    protected Gson _gson;
+    protected static Gson _gson = new Gson();
     
     public Object timeGsonDatabind(long reps) throws Exception
     {
+        /*
         if (_gson == null) {
             _gson = new Gson();
         }
+        */
         TwitterSearch result = null;
         while (--reps >= 0) {
             result = _gson.fromJson(new InputStreamReader(inputStream(), "UTF-8"), TwitterSearch.class);
@@ -65,9 +69,41 @@ public class TwitterCaliperReadTest
         return result;
     }
 
+    protected static Genson _genson = new Genson();
+
+    public Object timeGensonDatabind(long reps) throws Exception
+    {
+        /*
+        if (_genson == null) {
+            _genson = new Genson();
+        }
+        */
+        TwitterSearch result = null;
+        while (--reps >= 0) {
+            result = _genson.deserialize(new InputStreamReader(inputStream(), "UTF-8"), TwitterSearch.class);
+        }
+        return result;
+    }
+    
+    /*
+    protected net.minidev.json.mapper.AMapper<TwitterSearch> _jsonSmartMapper;
+    
+    public Object timeJsonSmart(long reps) throws Exception
+    {
+        if (_jsonSmartMapper == null) {
+            _jsonSmartMapper = net.minidev.json.mapper.Mapper.getMapper(TwitterSearch.class);
+        }
+        TwitterSearch result = null;
+        while (--reps >= 0) {
+            result = _jsonSmartMapper.
+        }            
+    }
+    */
+    
     protected JSONDeserializer<TwitterSearch> _flexJsonDeserializer;
     
-    public Object timeFlexJson(long reps) throws Exception
+    // TODO: enable
+    public Object XXXtimeFlexJson(long reps) throws Exception
     {
         if (_flexJsonDeserializer == null) {
             _flexJsonDeserializer = new JSONDeserializer<TwitterSearch>();
@@ -78,7 +114,13 @@ public class TwitterCaliperReadTest
             // .. this is actually bit of unfair advantage for flexjson (not
             // having to do real reads); but it's so slow that we don't care
             String doc = inputAsString();
-            result = _flexJsonDeserializer.deserialize(doc);
+            try {
+                result = _flexJsonDeserializer.deserialize(doc, TwitterSearch.class);
+            } catch (Exception e) {
+                System.err.println("FAIL: "+e);
+                e.printStackTrace();
+                throw e;
+            }
         }
         return result;
     }
