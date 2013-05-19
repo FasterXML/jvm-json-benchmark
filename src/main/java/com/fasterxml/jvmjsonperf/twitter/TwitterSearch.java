@@ -76,11 +76,5 @@ public class TwitterSearch
         sb.append(getResults().size()).append(" entries]");
         return sb.toString();
     }
-
-    /*
-    /**********************************************************************
-    /* Helper class
-    /**********************************************************************
-     */
 }
 

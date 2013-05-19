@@ -99,7 +99,7 @@ public class TwitterCaliperReadTest
     protected JSONDeserializer<TwitterSearch> _flexJsonDeserializer;
     
     // TODO: enable
-    public Object timeFlexJson(long reps) throws Exception
+    public Object XXXtimeFlexJson(long reps) throws Exception
     {
         if (_flexJsonDeserializer == null) {
             _flexJsonDeserializer = new JSONDeserializer<TwitterSearch>();

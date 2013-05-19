@@ -10,7 +10,7 @@ package com.fasterxml.jvmjsonperf;
 public abstract class StdItem<T extends StdItem<?>>
     implements java.io.Serializable // hessian needs this, as does jdk serializer (if we use it)
 {
-    protected StdItem() { }
+    public StdItem() { }
 
     /*
     /**********************************************************************
@@ -20,7 +20,7 @@ public abstract class StdItem<T extends StdItem<?>>
 
     @SuppressWarnings("unchecked")
     @Override
-        public final boolean equals(Object o)
+    public final boolean equals(Object o)
     {
         if (o == this) return true;
         if (o == null) return false;
