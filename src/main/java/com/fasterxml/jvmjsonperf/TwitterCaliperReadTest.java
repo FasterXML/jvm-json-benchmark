@@ -81,26 +81,25 @@ public class TwitterCaliperReadTest
         }
         return result;
     }
-    
-    /*
+
     protected net.minidev.json.mapper.AMapper<TwitterSearch> _jsonSmartMapper;
     
-    public Object timeJsonSmart(long reps) throws Exception
+    public Object XXXtimeJsonSmart(long reps) throws Exception
     {
         if (_jsonSmartMapper == null) {
             _jsonSmartMapper = net.minidev.json.mapper.Mapper.getMapper(TwitterSearch.class);
         }
         TwitterSearch result = null;
         while (--reps >= 0) {
-            result = _jsonSmartMapper.
-        }            
+            result = net.minidev.json.JSONValue.parse(inputStream(),TwitterSearch.class);
+        }
+        return result;
     }
-    */
     
     protected JSONDeserializer<TwitterSearch> _flexJsonDeserializer;
     
     // TODO: enable
-    public Object XXXtimeFlexJson(long reps) throws Exception
+    public Object timeFlexJson(long reps) throws Exception
     {
         if (_flexJsonDeserializer == null) {
             _flexJsonDeserializer = new JSONDeserializer<TwitterSearch>();

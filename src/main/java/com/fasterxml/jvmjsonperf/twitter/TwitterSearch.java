@@ -8,7 +8,7 @@ import com.fasterxml.jvmjsonperf.StdItem;
 public class TwitterSearch
     extends StdItem<TwitterSearch>
 {
-    private List<Entry> _results;
+    protected List<TwitterEntry> results;
 
     public long since_id, max_id;
     public int page;
@@ -20,15 +20,12 @@ public class TwitterSearch
     
     public TwitterSearch() { }
 
-    public List<Entry> getResults() {
-        if (_results == null) {
-            _results = new ArrayList<Entry>();
-        }
-        return _results;
+    public List<TwitterEntry> getResults() {
+        return results;
     }
 
-    public void setResults(List<Entry> r) { _results = r; }
-
+    public void setResults(List<TwitterEntry> r) { results = r; }
+    
     public int size() { return getResults().size(); }
 
     // // // Setters for whoever needs them
@@ -44,6 +41,20 @@ public class TwitterSearch
     public void setNext_page(String s) { next_page = s; }
 
     public void setCompleted_in(double d) { completed_in = d; }
+
+    // // // ditto for getters
+
+    public long getSince_id() { return since_id; }
+    public long getMax_id() { return max_id; }
+
+    public int getPage() { return page; }
+    public int getResults_per_page() { return results_per_page; }
+
+    public String getQuery() { return query; }
+    public String getRefresh_url() { return refresh_url; }
+    public String getNext_page() { return next_page; }
+
+    public double getCompleted_in() { return completed_in; }
     
     /*
     /**********************************************************************
@@ -52,7 +63,7 @@ public class TwitterSearch
      */
 
     @Override
-        public boolean _equals(TwitterSearch other)
+    public boolean _equals(TwitterSearch other)
     {
         return getResults().equals(other.getResults());
     }
@@ -71,30 +82,5 @@ public class TwitterSearch
     /* Helper class
     /**********************************************************************
      */
-
-    public final static class Entry
-    {
-        public int id;
-        public String text;
-        public String from_user, to_user;
-        public int from_user_id, to_user_id;
-        public String iso_language_code;
-        public String profile_image_url;
-        public String created_at;
-        
-        public Entry() { }
-
-        public void setId(int v) { id = v; }
-        public void setText(String v) { text = v; }
-
-        public void setFrom_user_id(int v) { from_user_id = v; }
-        public void setTo_user_id(int v) { to_user_id = v; }
-        
-        public void setFrom_user(String v) { from_user = v; }
-        public void setTo_user(String v) { to_user = v; }
-        public void setIso_language_code(String v) { iso_language_code = v; }
-        public void setProfile_image_url(String v) { profile_image_url = v; }
-        public void setCreated_at(String v) { created_at = v; }
-    }
 }
 
