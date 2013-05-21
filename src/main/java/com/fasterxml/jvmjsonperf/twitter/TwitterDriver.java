@@ -118,6 +118,9 @@ public abstract class TwitterDriver
             tmpStream.reset();
             _converter.writeData(tmpStream, origData);
             byte[] convData = tmpStream.toByteArray();
+            if (convData == null) {
+                throw new IllegalStateException("Empty output for "+_converter.getClass().getName());
+            }
             
             if (_readableData != null) {
                 _readableData[i] = convData;
