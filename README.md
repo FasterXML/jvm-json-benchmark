@@ -12,11 +12,26 @@ We may also include tree-based variants of data-binding - capable libraries in c
 In all cases we indicate processing-module uses (which indicates level-of-effort for using
 library for data-binding use cases).
 
+## Test framework
+
+Tests use Japex, since it
+
+1. Is designed for full benchmark runs (not just micro-benchmarks), and
+2. It provides full JVM isolation between tests, to avoid Hot-Spot problems wrt multiple competing implementations
+
+Some attempts were made to use Caliper, which has some promising features; but in the end
+Japex proved bit more mature for this specific use case.
+But we may try out other frameworks in future.
+
+## Results
+
+None published yet -- Stay Tuned!
+
 ## Libraries included
 
 ### Fastjson
 
-* Home page: https://github.com/AlibabaTech/fastjson
+* Home page: https://github.com/alibaba/fastjson
 * Version tested: 1.1.30
 
 Tested with default settings; except configured NOT to check for cyclic dependencies (as that
