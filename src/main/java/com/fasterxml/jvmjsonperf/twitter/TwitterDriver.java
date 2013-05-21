@@ -131,6 +131,6 @@ public abstract class TwitterDriver
     protected StdConverter<TwitterSearch> getStdConverter()
     {
         // data is in json, let's use Jackson as the base
-        return JacksonDriverAutomatic.getConverter();
+        return JacksonDriverDatabind.getConverter();
     }
 }

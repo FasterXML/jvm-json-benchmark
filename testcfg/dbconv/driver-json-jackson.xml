@@ -14,7 +14,7 @@
       <!-- Jackson, data-binding -->
       <driver name="Json/jackson/auto">
         <description><div xmlns=""><p>Test driver for JSON (text) that uses Jackson2 (AUTO)</p></div></description>
-        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.JacksonDriverAutomatic" />
+        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.JacksonDriverDatabind" />
         <param name="japex.classPath" value="target/classes"/>
         <param name="japex.classPath" value="lib/*.jar"/>
         <param name="japex.classPath" value="lib/jackson-2.1/*.jar"/>
@@ -24,7 +24,7 @@
 <!--
       <driver name="Smile/jackson1-smile/auto">
         <description><div xmlns=""><p>Test driver for Smile that uses Jackson 1.x (AUTO)</p></div></description>
-        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.JacksonDriverSmileAutomatic" />
+        <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.dbconv.JacksonDriverSmileDatabind" />
         <param name="japex.classPath" value="build/classes"/>
         <param name="japex.classPath" value="lib/*.jar"/>
         <param name="japex.classPath" value="lib/jackson/*.jar"/>

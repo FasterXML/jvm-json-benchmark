@@ -6,12 +6,12 @@ import com.fasterxml.jvmjsonperf.std.StdJacksonConverter;
  * Driver that uses "automatic" (bean/annotation-based) serialization with
  * Jackson (compared to hand-written one)
  */
-public final class JacksonDriverAutomatic
+public final class JacksonDriverDatabind
     extends TwitterDriver
 {
-    public JacksonDriverAutomatic() throws Exception
+    public JacksonDriverDatabind() throws Exception
     {
-        super(new StdJacksonConverter<TwitterSearch>(TwitterSearch.class));
+        super(getConverter());
     }
 
     public static StdJacksonConverter<TwitterSearch> getConverter() {

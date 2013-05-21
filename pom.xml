@@ -21,6 +21,8 @@
   </scm>
 
   <properties>
+    <japex.version>1.2.4</japex.version>
+
     <jackson.version>2.2.1</jackson.version>
     <xstream.version>1.4.4</xstream.version>
     <gson.version>2.2.4</gson.version>
@@ -33,7 +35,7 @@
     <dependency>
       <groupId>com.sun.japex</groupId>
       <artifactId>japex</artifactId>
-      <version>1.2.4</version>
+      <version>${japex.version}</version>
     </dependency>
 	<dependency>
 	  <groupId>com.google.caliper</groupId>
@@ -94,6 +96,51 @@
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>com.sun.japex</groupId>
+        <artifactId>japex-maven-plugin</artifactId>
+        <version>${japex.version}</version>
+        <executions>
+              <execution>
+                <id>japex</id>
+                <goals><goal>japex</goal></goals>
+              </execution>
+            </executions>
+            <configuration>
+              <japexConfig>
+                <testSuite name="JSON read/write test" xmlns="http://www.sun.com/japex/testSuite">
+                  <param name="japex.namedClassPath" value="maven.test.classpath"/>
+                  <param name="japex.warmupTime" value="4"/>
+                  <param name="japex.reportsDirectory" value="japex-reports"/>
+                  <param name="japex.runTime" value="30"/>
+                  <param name="japex.runsPerDriver" value="1"/>
+                  <param name="japex.inputDir" value="data/db-medium/"/>
+
+                  <driver name="Jackson/databind">
+                    <param name="description" value="Uses Jackson via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.JacksonDriverDatabind"/>
+                  </driver>
+                  <driver name="GSON/databind">
+                    <param name="description" value="Uses GSON via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.GsonDriverDatabind"/>
+                  </driver>
+
+                  <testCase name="read-to-object">
+                    <param name="japex.operation" value="READ" />
+                  </testCase>
+                  <testCase name="write-from-object">
+                    <param name="japex.operation" value="WRITE" />
+                  </testCase>
+                  <testCase name="read-map-write">
+                    <param name="japex.operation" value="READ_WRITE" />
+                  </testCase>
+                </testSuite>
+              </japexConfig>
+            </configuration>
+      </plugin>
+
+      <!-- With Caliper, easiest to build a fat jar
+        -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>

@@ -1,11 +1,11 @@
 #!/bin/sh
  
-echo "About to run full 'dbconv' test on JSON drivers, medium data set"
+echo "About to run full 'dbconv' test with medium data set"
 
 # Nothing big stored in memory, heap can remain modest 
 # -Djapex.runTime=30 \
 java -server -cp lib/\* \
- -Xmx128M \
+ -Xms256m -Xmx256m \
  -Djapex.runsPerDriver=3 \
  -Djapex.warmupTime=5 \
  -Djapex.runTime=30 \
@@ -13,6 +13,6 @@ java -server -cp lib/\* \
  -Djapex.reportsDirectory=japex-reports \
  -Djapex.inputDir=data/db-medium/ \
  com.sun.japex.Japex \
- testcfg/dbconv-json.xml
+ testcfg/dbconv-generic.xml
 
 echo "Done!";
