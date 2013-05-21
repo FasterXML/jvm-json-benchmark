@@ -24,16 +24,16 @@ NOTE: version 3.0 appears to be available, but I could not make it work.
 
 ### Genson
 
-Home page: http://code.google.com/p/genson/
-Version tested: 0.94
+* Home page: http://code.google.com/p/genson/
+* Version tested: 0.94
 
 Similar to GSON, need to use JDK `InputStreamReader`. In addition, output only as `String`, which
 is then written using `OutputStreamWriter`.
 
 ### GSON
 
-Home page: http://code.google.com/p/google-gson/)
-Version tested: 2.2
+* Home page: http://code.google.com/p/google-gson/)
+* Version tested: 2.2
 
 Tested in basic data-binding mode, with default configuration.
 
@@ -43,15 +43,15 @@ and output `OutputStreamWriter`.
 
 ### Jackson
 
-Home page: https://github.com/FasterXML/jackson
-Version tested: 2.2
+* Home page: https://github.com/FasterXML/jackson
+* Version tested: 2.2
 
 Tested in basic data-binding mode, with default configuration.
 
 ### JSON-tools
 
-Home page: http://jsontools.berlios.de/
-Version tested: 1.7
+* Home page: http://jsontools.berlios.de/
+* Version tested: 1.7
 
 Seems to require two-phase process for reading (with `JSONParser` from `InputStream`, into `JSONValue`;
 then mapped using `JSONMapper`.
@@ -63,8 +63,8 @@ Following libraries were considered for inclusion, but had to be excluded for so
 
 ### Json-smart
 
-Home page: http://code.google.com/p/json-smart/
-Version tested: 2.0-RC2
+* Home page: http://code.google.com/p/json-smart/
+* Version tested: 2.0-RC2
 
 Simply, does not work. Although I found a way that should allow Bean conversions, code just mysteriously
 fails with a class-loading error.
