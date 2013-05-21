@@ -2,6 +2,8 @@ package com.fasterxml.jvmjsonperf;
 
 import java.io.*;
 
+import com.fasterxml.jvmjsonperf.util.TestByteArrayInputStream;
+
 
 /**
  * Base class for "standard" converters used for data binding
@@ -14,9 +16,9 @@ public abstract class StdConverter<T extends StdItem<T>>
     }
 
     /*
-    ///////////////////////////////////////////////////////////
-    // Data binding test methods
-    ///////////////////////////////////////////////////////////
+    /**********************************************************************
+    /* Data binding test methods
+    /**********************************************************************
      */
 
     /**
@@ -33,4 +35,31 @@ public abstract class StdConverter<T extends StdItem<T>>
      *   but not random. Need to ensure no dead code elimination occurs
      */
     public abstract int writeData(OutputStream out, T data) throws Exception;
+
+    /*
+    /**********************************************************************
+    /* Helper methods for sub-classes
+    /**********************************************************************
+     */
+
+    protected byte[] readAll(InputStream in)
+        throws IOException
+    {
+        // assume we are running a test; and so..
+        TestByteArrayInputStream bytes = (TestByteArrayInputStream) in;
+        int len = bytes.size();
+        byte[] result = new byte[len];
+        int offset = 0;
+        
+        while (len > 0) {
+            int count = bytes.read(result, offset, len);
+            if (count <= 0) {
+                throw new IllegalStateException("Still had "+len+" bytes to read");
+            }
+            len -= count;
+            offset += count;
+        }
+        return result;
+    }
+
 }

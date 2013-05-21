@@ -5,6 +5,7 @@ import java.io.*;
 
 import com.fasterxml.jvmjsonperf.StdConverter;
 import com.fasterxml.jvmjsonperf.japex.BaseJapexDriver;
+import com.fasterxml.jvmjsonperf.util.TestByteArrayInputStream;
 
 public abstract class TwitterDriver
     extends BaseJapexDriver<TwitterConverter.Operation>
@@ -45,7 +46,7 @@ public abstract class TwitterDriver
             int result = 0;
             final ByteArrayOutputStream bos = new ByteArrayOutputStream(16000);
             for (byte[] input : _readableData) {
-                TwitterSearch dd = (TwitterSearch) _converter.readData(new ByteArrayInputStream(input));
+                TwitterSearch dd = (TwitterSearch) _converter.readData(new TestByteArrayInputStream(input));
                 if (dd == null) {
                     throw new IllegalStateException("Deserialized doc to null");
                 }
@@ -104,7 +105,7 @@ public abstract class TwitterDriver
             // Read file contents, bind to in-memory object (using std conv)
             readAll(f, readBuffer, tmpStream);
             byte[] fileData = tmpStream.toByteArray();
-            TwitterSearch origData = (TwitterSearch) stdConverter.readData(new ByteArrayInputStream(fileData));
+            TwitterSearch origData = (TwitterSearch) stdConverter.readData(new TestByteArrayInputStream(fileData));
             if (_writableData != null) {
                 _writableData[i] = origData;
             }
@@ -121,7 +122,7 @@ public abstract class TwitterDriver
             if (_readableData != null) {
                 _readableData[i] = convData;
             }
-            TwitterSearch convResults = (TwitterSearch)_converter.readData(new ByteArrayInputStream(convData));
+            TwitterSearch convResults = (TwitterSearch)_converter.readData(new TestByteArrayInputStream(convData));
             if (!convResults.equals(origData)) {
                 // Not very clean, but let's output for debugging:
                 System.err.println("Incorrect mapping");

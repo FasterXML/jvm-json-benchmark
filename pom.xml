@@ -23,14 +23,15 @@
   <properties>
     <japex.version>1.2.4</japex.version>
 
-    <jackson.version>2.2.1</jackson.version>
-    <xstream.version>1.4.4</xstream.version>
-    <gson.version>2.2.4</gson.version>
-    <genson.version>0.94</genson.version>
-    <jsontools.version>1.7</jsontools.version>
-    
+    <fastjson.version>1.1.19</fastjson.version>
     <!--  3.0 does not seem to work (it exists, but fails) -->
     <flexjson.version>2.1</flexjson.version>
+    <genson.version>0.94</genson.version>
+    <gson.version>2.2.4</gson.version>
+    <jackson.version>2.2.1</jackson.version>
+    <jsontools.version>1.7</jsontools.version>
+
+    <xstream.version>1.4.4</xstream.version>
   </properties>
 
   <dependencies>
@@ -58,12 +59,8 @@
       <version>${jackson.version}</version>
     </dependency>
 
-    <!--  XStream (via Jettison) -->
-    <dependency>
-      <groupId>com.thoughtworks.xstream</groupId>
-      <artifactId>xstream</artifactId>
-      <version>${xstream.version}</version>
-    </dependency>
+    <fastjson.version>1.1.19</fastjson.version>
+
     <!--  GSON -->
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -95,6 +92,20 @@
       <version>2.0-RC2</version>
     </dependency>
 
+    <!--  fast-json -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>${fastjson.version}</version>
+    </dependency>
+
+    <!--  XStream? (really) -->
+    <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>${xstream.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -122,6 +133,10 @@
                   <driver name="Jackson/databind">
                     <param name="description" value="Uses Jackson via data-binding"/>
                     <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.JacksonDriverDatabind"/>
+                  </driver>
+                  <driver name="Fast-JSON/databind">
+                    <param name="description" value="Uses Fast-JSON via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.FastjsonDriverDatabind"/>
                   </driver>
                   <driver name="GSON/databind">
                     <param name="description" value="Uses GSON via data-binding"/>

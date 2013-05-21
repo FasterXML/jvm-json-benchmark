@@ -7,6 +7,7 @@ import javax.xml.stream.*;
 
 import com.fasterxml.jvmjsonperf.StdConverter;
 import com.fasterxml.jvmjsonperf.japex.BaseJapexDriver;
+import com.fasterxml.jvmjsonperf.util.TestByteArrayInputStream;
 
 public abstract class DbconvDriver
     extends BaseJapexDriver<DbConverter.Operation>
@@ -102,7 +103,7 @@ public abstract class DbconvDriver
             // Read file contents, bind to in-memory object (using std conv)
             readAll(f, readBuffer, tmpStream);
             byte[] fileData = tmpStream.toByteArray();
-            DbData origData = (DbData) stdConverter.readData(new ByteArrayInputStream(fileData));
+            DbData origData = (DbData) stdConverter.readData(new TestByteArrayInputStream(fileData));
             if (_writableData != null) {
                 _writableData[i] = origData;
             }
@@ -122,7 +123,7 @@ public abstract class DbconvDriver
             if (_readableData != null) {
                 _readableData[i] = convData;
             }
-            DbData convResults = (DbData)_converter.readData(new ByteArrayInputStream(convData));
+            DbData convResults = (DbData)_converter.readData(new TestByteArrayInputStream(convData));
             if (!convResults.equals(origData)) {
                 // Not very clean, but let's output for debugging:
                 System.err.println("Incorrect mapping");

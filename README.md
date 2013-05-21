@@ -61,6 +61,16 @@ Similarly writing has to be done using an intermediate `String` -- inefficient, 
 
 Following libraries were considered for inclusion, but had to be excluded for some reason.
 
+### Json-lib
+
+* Home page: http://json-lib.sourceforge.net
+* Version: 2.4
+
+This library is sort-of kind-of capable of data-binding, but requires lots of additional configuration and
+registration of types (see `JsonLibJsonDatabind.java` of [JVM-serializers](https://github.com/eishay/jvm-serializers)
+for details); so it seems more hassle than worth.
+Performance, as per jvm-serializers, also does not rank anywhere near top of Java JSON libraries, so this does not seem like a big omission.
+
 ### Json-smart
 
 * Home page: http://code.google.com/p/json-smart/
