@@ -59,8 +59,6 @@
       <version>${jackson.version}</version>
     </dependency>
 
-    <fastjson.version>1.1.19</fastjson.version>
-
     <!--  GSON -->
     <dependency>
       <groupId>com.google.code.gson</groupId>
