@@ -132,6 +132,14 @@
                     <param name="description" value="Uses FlexJson via data-binding"/>
                     <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.FlexjsonDriverDatabind"/>
                   </driver>
+                  <driver name="JSON-Smart/databind">
+                    <param name="description" value="Uses JSON-Smart via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.JsonsmartDriverDatabind"/>
+                  </driver>
+                  <driver name="JSON-tools/databind">
+                    <param name="description" value="Uses tools via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.JsontoolsDriverDatabind"/>
+                  </driver>
 
                   <testCase name="read-to-object">
                     <param name="japex.operation" value="READ" />

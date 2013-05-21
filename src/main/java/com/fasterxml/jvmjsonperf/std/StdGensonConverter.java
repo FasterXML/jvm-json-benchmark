@@ -41,7 +41,7 @@ public class StdGensonConverter<T extends StdItem<T>>
     {
         OutputStreamWriter w = new OutputStreamWriter(out, "UTF-8");
         w.write(_genson.serialize(data));
-        w.close();
+        w.flush();
         return -1;
     }
 }
