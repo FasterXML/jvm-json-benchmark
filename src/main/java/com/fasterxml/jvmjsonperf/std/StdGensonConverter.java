@@ -4,6 +4,7 @@ import java.io.*;
 
 import com.owlike.genson.Genson;
 import com.owlike.genson.TransformationException;
+import com.owlike.genson.stream.ObjectWriter;
 
 import com.fasterxml.jvmjsonperf.StdConverter;
 import com.fasterxml.jvmjsonperf.StdItem;
@@ -39,8 +40,8 @@ public class StdGensonConverter<T extends StdItem<T>>
     @Override
     public int writeData(OutputStream out, T data) throws Exception
     {
-        OutputStreamWriter w = new OutputStreamWriter(out, "UTF-8");
-        w.write(_genson.serialize(data));
+        ObjectWriter w = _genson.createWriter(out);
+        _genson.serialize(data);
         w.flush();
         return -1;
     }
