@@ -65,7 +65,24 @@ public class TwitterSearch
     @Override
     public boolean _equals(TwitterSearch other)
     {
-        return getResults().equals(other.getResults());
+        List<TwitterEntry> e1 = getResults();
+        List<TwitterEntry> e2 = other.getResults();
+
+        if (e1 == null || e2 == null) {
+            return false;
+        }
+        if (e1.size() != e2.size()) {
+            return false;
+        }
+        for (int i = 0, len = e1.size(); i < len; ++i) {
+            TwitterEntry entry1 = e1.get(i);
+            TwitterEntry entry2 = e2.get(i);
+
+            if (!entry1.equals(entry2)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

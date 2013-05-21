@@ -125,8 +125,8 @@ public abstract class TwitterDriver
             if (!convResults.equals(origData)) {
                 // Not very clean, but let's output for debugging:
                 System.err.println("Incorrect mapping");
-                System.err.println("Source doc: ["+origData+"]");
-                System.err.println("Using "+_converter+": ["+convResults+"]");
+                System.err.println("Source doc: ["+new String(fileData, "UTF-8")+"]");
+                System.err.println("Using "+_converter+": ["+new String(convData, "UTF-8")+"]");
                 throw new IllegalStateException("Item #"+i+"/"+len+" differs for '"+_converter+"'");
             }
         }
