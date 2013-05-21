@@ -126,6 +126,9 @@ public abstract class TwitterDriver
                 _readableData[i] = convData;
             }
             TwitterSearch convResults = (TwitterSearch)_converter.readData(new TestByteArrayInputStream(convData));
+            if (convResults == null) {
+                throw new IllegalStateException("Missing converted results for "+_converter.getClass().getName());
+            }
             if (!convResults.equals(origData)) {
                 // Not very clean, but let's output for debugging:
                 System.err.println("Incorrect mapping");
