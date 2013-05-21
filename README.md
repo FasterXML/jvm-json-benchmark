@@ -16,8 +16,8 @@ library for data-binding use cases).
 
 ### Flex-JSON
 
-Home page: http://sourceforge.net/projects/flexjson
-Version tested: 2.1
+* Home page: http://sourceforge.net/projects/flexjson
+* Version tested: 2.1
 
 NOTE: version 3.0 appears to be available, but I could not make it work.
 2.1 appears to be the official publicly available version.
