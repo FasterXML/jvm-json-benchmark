@@ -95,6 +95,10 @@ public abstract class TwitterDriver
         _writableData = (oper == StdConverter.Operation.WRITE) ?
             new TwitterSearch[files.length] : null;
 
+        if (files.length == 0) {
+            throw new IllegalStateException("No JSON twitter files found from: "+dir);
+        }
+            
         for (int i = 0, len = files.length; i < len; ++i) {
             File f = files[i];
             // Read file contents, bind to in-memory object (using std conv)

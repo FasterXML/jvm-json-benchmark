@@ -102,6 +102,7 @@
         <version>${japex.version}</version>
         <executions>
               <execution>
+                <phase>install</phase>
                 <id>japex</id>
                 <goals><goal>japex</goal></goals>
               </execution>
@@ -111,10 +112,9 @@
                 <testSuite name="JSON read/write test" xmlns="http://www.sun.com/japex/testSuite">
                   <param name="japex.namedClassPath" value="maven.test.classpath"/>
                   <param name="japex.warmupTime" value="4"/>
-                  <param name="japex.reportsDirectory" value="japex-reports"/>
                   <param name="japex.runTime" value="30"/>
                   <param name="japex.runsPerDriver" value="1"/>
-                  <param name="japex.inputDir" value="data/db-medium/"/>
+                  <param name="japex.inputDir" value="data/twitter/"/>
 
                   <driver name="Jackson/databind">
                     <param name="description" value="Uses Jackson via data-binding"/>
