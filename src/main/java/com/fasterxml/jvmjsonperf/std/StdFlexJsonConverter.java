@@ -35,7 +35,7 @@ public class StdFlexJsonConverter<T extends StdItem<T>>
     {
         // Unbelievable -- can only parse a fucking String? What a joke.
         String doc = _read(in, "UTF-8");
-        return _deserializer.deserialize(doc);
+        return _deserializer.deserialize(doc, _itemClass);
     }
     
     @Override
