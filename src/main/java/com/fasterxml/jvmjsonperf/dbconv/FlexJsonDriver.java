@@ -10,6 +10,6 @@ public final class FlexJsonDriver
 {
     public FlexJsonDriver() throws Exception
     {
-        super(new StdFlexJsonConverter<DbData>(DbData.class));
+        super(new StdFlexJsonConverter<DbData>(DbData.class, new String[] { }));
     }
 }

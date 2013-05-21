@@ -16,18 +16,27 @@ import flexjson.JSONSerializer;
 public class StdFlexJsonConverter<T extends StdItem<T>>
     extends StdConverter<T>
 {
-    final JSONSerializer _serializer;
-    final JSONDeserializer<T> _deserializer;
+    protected final Class<T> _itemClass;
 
-    final Class<T> _itemClass;
-
+    // left as non-final, for sub-classes to customize if/as necessary
+    
+    protected JSONSerializer _serializer;
+    protected JSONDeserializer<T> _deserializer;
+    
     private transient byte[] _readBuffer = new byte[2000];
 
-    public StdFlexJsonConverter(Class<T> itemClass)
+    public StdFlexJsonConverter(Class<T> itemClass, String[] inclusions)
     {
         _itemClass = itemClass;
         _deserializer = new JSONDeserializer<T>();
-        _serializer = new JSONSerializer();
+        /* 21-May-2013, tatu: As per jvm-serializers driver for flex-json,
+         *   looks like we need to add exclusion for some reason:
+         */
+        _serializer = new JSONSerializer()
+            .exclude("*.class");
+        if (inclusions != null) {
+            _serializer = _serializer.include(inclusions);
+        }
     }
 
     @Override

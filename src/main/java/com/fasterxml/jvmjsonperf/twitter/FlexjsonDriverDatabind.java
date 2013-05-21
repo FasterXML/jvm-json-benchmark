@@ -7,6 +7,9 @@ public class FlexjsonDriverDatabind
 {
     public FlexjsonDriverDatabind() throws Exception
     {
-        super(new StdFlexJsonConverter<TwitterSearch>(TwitterSearch.class));
+        // important: include List of entries
+        super(new StdFlexJsonConverter<TwitterSearch>(TwitterSearch.class,
+                new String[] { "results" } ));
+        
     }
 }
