@@ -14,6 +14,17 @@ library for data-binding use cases).
 
 ## Libraries included
 
+### Fastjson
+
+* Home page: https://github.com/AlibabaTech/fastjson
+* Version tested: 1.1.30
+
+Tested with default settings; except configured NOT to check for cyclic dependencies (as that
+adds overhead).
+Library apparently can not take streaming input, so code has to read all content in; this
+is done using simple copy (which gives slight advantage compared to having to do it the
+usual way); but should not change results drastically.
+
 ### Flex-JSON
 
 * Home page: http://sourceforge.net/projects/flexjson
