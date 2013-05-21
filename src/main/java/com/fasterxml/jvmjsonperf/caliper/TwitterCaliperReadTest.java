@@ -1,4 +1,4 @@
-package com.fasterxml.jvmjsonperf;
+package com.fasterxml.jvmjsonperf.caliper;
 
 import java.io.*;
 import java.nio.charset.Charset;

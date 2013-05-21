@@ -1,4 +1,4 @@
-package com.fasterxml.jvmjsonperf;
+package com.fasterxml.jvmjsonperf.caliper;
 
 import com.google.caliper.Benchmark;
 import com.google.caliper.runner.CaliperMain;
