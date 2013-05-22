@@ -114,7 +114,7 @@
         <version>${japex.version}</version>
         <executions>
               <execution>
-                <phase>install</phase>
+                <phase>deploy</phase>
                 <id>japex</id>
                 <goals><goal>japex</goal></goals>
               </execution>

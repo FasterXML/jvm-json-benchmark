@@ -81,25 +81,10 @@ public class TwitterCaliperReadTest
         }
         return result;
     }
-
-    protected net.minidev.json.mapper.AMapper<TwitterSearch> _jsonSmartMapper;
-    
-    public Object XXXtimeJsonSmart(long reps) throws Exception
-    {
-        if (_jsonSmartMapper == null) {
-            _jsonSmartMapper = net.minidev.json.mapper.Mapper.getMapper(TwitterSearch.class);
-        }
-        TwitterSearch result = null;
-        while (--reps >= 0) {
-            result = net.minidev.json.JSONValue.parse(inputStream(),TwitterSearch.class);
-        }
-        return result;
-    }
     
     protected JSONDeserializer<TwitterSearch> _flexJsonDeserializer;
-    
-    // TODO: enable
-    public Object XXXtimeFlexJson(long reps) throws Exception
+
+    public Object timeFlexJson(long reps) throws Exception
     {
         if (_flexJsonDeserializer == null) {
             _flexJsonDeserializer = new JSONDeserializer<TwitterSearch>();
@@ -121,7 +106,7 @@ public class TwitterCaliperReadTest
         return result;
     }
     
-    // TODO: enable
+    // TODO: enable if/when it works? (and why DOES it fail?!)
     public Object XXXtimeJsontoolsDatabind(long reps) throws Exception
     {
         TwitterSearch result = null;
@@ -131,6 +116,21 @@ public class TwitterCaliperReadTest
             JSONValue v = jp.nextValue();
             result = (TwitterSearch) JSONMapper.toJava(v, TwitterSearch.class);
             in.close();
+        }
+        return result;
+    }
+
+    // TODO: enable if/when it works:
+    protected net.minidev.json.mapper.AMapper<TwitterSearch> _jsonSmartMapper;
+    
+    public Object XXXtimeJsonSmart(long reps) throws Exception
+    {
+        if (_jsonSmartMapper == null) {
+            _jsonSmartMapper = net.minidev.json.mapper.Mapper.getMapper(TwitterSearch.class);
+        }
+        TwitterSearch result = null;
+        while (--reps >= 0) {
+            result = net.minidev.json.JSONValue.parse(inputStream(),TwitterSearch.class);
         }
         return result;
     }

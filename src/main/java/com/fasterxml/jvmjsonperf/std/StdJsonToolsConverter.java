@@ -15,14 +15,14 @@ import com.sdicons.json.parser.JSONParser;
 public class StdJsonToolsConverter<T extends StdItem<T>>
     extends StdConverter<T>
 {
-    final JSONMapper _mapper;
+//    final JSONMapper _mapper;
 
     final Class<T> _itemClass;
 
     public StdJsonToolsConverter(Class<T> itemClass)
     {
         _itemClass = itemClass;
-        _mapper = new JSONMapper();
+//        _mapper = new JSONMapper();
     }
 
     @SuppressWarnings("unchecked")
