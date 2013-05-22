@@ -31,7 +31,7 @@ public class StdGensonConverter<T extends StdItem<T>>
     {
         // Alas, Genson can't eat InputStreams either?
         try {
-            return _genson.deserialize(new InputStreamReader(in, "UTF-8"), _itemClass);
+            return _genson.deserialize(in, _itemClass);
         } catch (TransformationException e) {
             throw new IOException(e.getMessage(), e);
         }
@@ -40,16 +40,7 @@ public class StdGensonConverter<T extends StdItem<T>>
     @Override
     public int writeData(OutputStream out, T data) throws Exception
     {
-        // 21-May-2013, tatu: Won't work, produces zero bytes of data?
-        /*
-        ObjectWriter w = _genson.createWriter(out);
-        _genson.serialize(data);
-        w.close();
-        */
-        
-        OutputStreamWriter w = new OutputStreamWriter(out, "UTF-8");
-        w.write(_genson.serialize(data));
-        w.flush();
+        _genson.serialize(data, out);
         return -1;
     }
 }

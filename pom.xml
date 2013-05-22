@@ -128,9 +128,15 @@
                   <param name="japex.runsPerDriver" value="1"/>
                   <param name="japex.inputDir" value="data/twitter/"/>
 
+  <!-- Drivers loosely ordered from fastest to slowest -->
+
                   <driver name="Jackson/databind">
                     <param name="description" value="Uses Jackson via data-binding"/>
                     <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.JacksonDriverDatabind"/>
+                  </driver>
+                  <driver name="Genson/databind">
+                    <param name="description" value="Uses Genson via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.GensonDriverDatabind"/>
                   </driver>
                   <driver name="Fast-JSON/databind">
                     <param name="description" value="Uses Fast-JSON via data-binding"/>
@@ -139,10 +145,6 @@
                   <driver name="GSON/databind">
                     <param name="description" value="Uses GSON via data-binding"/>
                     <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.GsonDriverDatabind"/>
-                  </driver>
-                  <driver name="Genson/databind">
-                    <param name="description" value="Uses Genson via data-binding"/>
-                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.GensonDriverDatabind"/>
                   </driver>
                   <driver name="FlexJson/databind">
                     <param name="description" value="Uses FlexJson via data-binding"/>
