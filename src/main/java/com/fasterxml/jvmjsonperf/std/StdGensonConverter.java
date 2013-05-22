@@ -4,7 +4,6 @@ import java.io.*;
 
 import com.owlike.genson.Genson;
 import com.owlike.genson.TransformationException;
-import com.owlike.genson.stream.ObjectWriter;
 
 import com.fasterxml.jvmjsonperf.StdConverter;
 import com.fasterxml.jvmjsonperf.StdItem;
