@@ -1,0 +1,285 @@
+<testSuiteReport name="JSON read/write test" xmlns="http://www.sun.com/japex/testSuiteReport">
+  <chartType>barchart</chartType>
+  <configFile>japex3690138448027225629.xml</configFile>
+  <dateTime>05 Jun 2013/18:59:24 PDT</dateTime>
+  <dummyResult>14</dummyResult>
+  <hostName>TS-MacMini.local</hostName>
+  <inputDir>/opt/java/jvm-json-benchmark/twitter-test/data/</inputDir>
+  <namedClassPath>maven.test.classpath</namedClassPath>
+  <numberOfCpus>2</numberOfCpus>
+  <numberOfThreads>1</numberOfThreads>
+  <osArchitecture>x86_64</osArchitecture>
+  <osName>Mac OS X</osName>
+  <plotDrivers>false</plotDrivers>
+  <plotGroupSize>5</plotGroupSize>
+  <reportsDirectory>reports</reportsDirectory>
+  <resultAxis>normal</resultAxis>
+  <resultAxisX>normal</resultAxisX>
+  <resultUnit>tps</resultUnit>
+  <resultUnitX>KB</resultUnitX>
+  <runTime>24</runTime>
+  <runsPerDriver>3</runsPerDriver>
+  <singleClassLoader>false</singleClassLoader>
+  <version>1.2.4</version>
+  <vmInfo>Oracle Corporation 23.6-b04</vmInfo>
+  <warmupTime>6</warmupTime>
+  <warmupsPerDriver>1</warmupsPerDriver>
+  <driver name="Jackson/databind">
+    <driverClass>com.fasterxml.jvmjsonperf.twitter.JacksonDriverDatabind</driverClass>
+    <resultAritMean>23046.41</resultAritMean>
+    <resultAritMeanStddev>305.014</resultAritMeanStddev>
+    <resultAritMeanX>8.038</resultAritMeanX>
+    <resultAritMeanXStddev>0</resultAritMeanXStddev>
+    <resultGeomMean>21811.726</resultGeomMean>
+    <resultGeomMeanStddev>294.681</resultGeomMeanStddev>
+    <resultGeomMeanX>7.595</resultGeomMeanX>
+    <resultGeomMeanXStddev>0</resultGeomMeanXStddev>
+    <resultHarmMean>20586.541</resultHarmMean>
+    <resultHarmMeanStddev>284.123</resultHarmMeanStddev>
+    <resultHarmMeanX>7.234</resultHarmMeanX>
+    <resultHarmMeanXStddev>0</resultHarmMeanXStddev>
+    <description xmlns="">Uses Jackson via data-binding</description>
+    <testCase name="read-to-object">
+      <operation>READ</operation>
+      <resultIterations>548344</resultIterations>
+      <resultTime>23.894</resultTime>
+      <resultValue>22949.367</resultValue>
+      <resultValueStddev>206.922</resultValueStddev>
+      <resultValueX>6.028</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="write-from-object">
+      <operation>WRITE</operation>
+      <resultIterations>765834</resultIterations>
+      <resultTime>23.852</resultTime>
+      <resultValue>32106.496</resultValue>
+      <resultValueStddev>312.921</resultValueStddev>
+      <resultValueX>6.028</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="read-map-write">
+      <operation>READ_WRITE</operation>
+      <resultIterations>336463.667</resultIterations>
+      <resultTime>23.891</resultTime>
+      <resultValue>14083.367</resultValue>
+      <resultValueStddev>395.198</resultValueStddev>
+      <resultValueX>12.057</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+  </driver>
+  <driver name="Fast-JSON/databind">
+    <driverClass>com.fasterxml.jvmjsonperf.twitter.FastjsonDriverDatabind</driverClass>
+    <resultAritMean>13377.242</resultAritMean>
+    <resultAritMeanStddev>121.541</resultAritMeanStddev>
+    <resultAritMeanX>7.823</resultAritMeanX>
+    <resultAritMeanXStddev>0</resultAritMeanXStddev>
+    <resultGeomMean>12741.854</resultGeomMean>
+    <resultGeomMeanStddev>100.913</resultGeomMeanStddev>
+    <resultGeomMeanX>7.392</resultGeomMeanX>
+    <resultGeomMeanXStddev>0</resultGeomMeanXStddev>
+    <resultHarmMean>12054.7</resultHarmMean>
+    <resultHarmMeanStddev>82.251</resultHarmMeanStddev>
+    <resultHarmMeanX>7.041</resultHarmMeanX>
+    <resultHarmMeanXStddev>0</resultHarmMeanXStddev>
+    <description xmlns="">Uses Fast-JSON via data-binding</description>
+    <testCase name="read-to-object">
+      <operation>READ</operation>
+      <resultIterations>356999.333</resultIterations>
+      <resultTime>23.9</resultTime>
+      <resultValue>14936.888</resultValue>
+      <resultValueStddev>112.224</resultValueStddev>
+      <resultValueX>5.867</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="write-from-object">
+      <operation>WRITE</operation>
+      <resultIterations>408655.333</resultIterations>
+      <resultTime>23.909</resultTime>
+      <resultValue>17091.729</resultValue>
+      <resultValueStddev>208.473</resultValueStddev>
+      <resultValueX>5.867</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="read-map-write">
+      <operation>READ_WRITE</operation>
+      <resultIterations>193543.667</resultIterations>
+      <resultTime>23.885</resultTime>
+      <resultValue>8103.11</resultValue>
+      <resultValueStddev>43.925</resultValueStddev>
+      <resultValueX>11.734</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+  </driver>
+  <driver name="GSON/databind">
+    <driverClass>com.fasterxml.jvmjsonperf.twitter.GsonDriverDatabind</driverClass>
+    <resultAritMean>7835.682</resultAritMean>
+    <resultAritMeanStddev>41.779</resultAritMeanStddev>
+    <resultAritMeanX>7.921</resultAritMeanX>
+    <resultAritMeanXStddev>0</resultAritMeanXStddev>
+    <resultGeomMean>7097.795</resultGeomMean>
+    <resultGeomMeanStddev>37.655</resultGeomMeanStddev>
+    <resultGeomMeanX>7.484</resultGeomMeanX>
+    <resultGeomMeanXStddev>0</resultGeomMeanXStddev>
+    <resultHarmMean>6478.291</resultHarmMean>
+    <resultHarmMeanStddev>34.42</resultHarmMeanStddev>
+    <resultHarmMeanX>7.129</resultHarmMeanX>
+    <resultHarmMeanXStddev>0</resultHarmMeanXStddev>
+    <description xmlns="">Uses GSON via data-binding</description>
+    <testCase name="read-to-object">
+      <operation>READ</operation>
+      <resultIterations>302633</resultIterations>
+      <resultTime>23.914</resultTime>
+      <resultValue>12654.905</resultValue>
+      <resultValueStddev>69.317</resultValueStddev>
+      <resultValueX>5.94</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="write-from-object">
+      <operation>WRITE</operation>
+      <resultIterations>155829.333</resultIterations>
+      <resultTime>23.918</resultTime>
+      <resultValue>6515.197</resultValue>
+      <resultValueStddev>24.223</resultValueStddev>
+      <resultValueX>5.94</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="read-map-write">
+      <operation>READ_WRITE</operation>
+      <resultIterations>103716.333</resultIterations>
+      <resultTime>23.915</resultTime>
+      <resultValue>4336.945</resultValue>
+      <resultValueStddev>31.798</resultValueStddev>
+      <resultValueX>11.881</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+  </driver>
+  <driver name="Genson/databind">
+    <driverClass>com.fasterxml.jvmjsonperf.twitter.GensonDriverDatabind</driverClass>
+    <resultAritMean>12059.572</resultAritMean>
+    <resultAritMeanStddev>13.114</resultAritMeanStddev>
+    <resultAritMeanX>8.038</resultAritMeanX>
+    <resultAritMeanXStddev>0</resultAritMeanXStddev>
+    <resultGeomMean>11322.077</resultGeomMean>
+    <resultGeomMeanStddev>11.334</resultGeomMeanStddev>
+    <resultGeomMeanX>7.595</resultGeomMeanX>
+    <resultGeomMeanXStddev>0</resultGeomMeanXStddev>
+    <resultHarmMean>10604.275</resultHarmMean>
+    <resultHarmMeanStddev>9.535</resultHarmMeanStddev>
+    <resultHarmMeanX>7.234</resultHarmMeanX>
+    <resultHarmMeanXStddev>0</resultHarmMeanXStddev>
+    <description xmlns="">Uses Genson via data-binding</description>
+    <testCase name="read-to-object">
+      <operation>READ</operation>
+      <resultIterations>413015.333</resultIterations>
+      <resultTime>23.918</resultTime>
+      <resultValue>17268.094</resultValue>
+      <resultValueStddev>13.818</resultValueStddev>
+      <resultValueX>6.028</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="write-from-object">
+      <operation>WRITE</operation>
+      <resultIterations>281487</resultIterations>
+      <resultTime>23.917</resultTime>
+      <resultValue>11769.106</resultValue>
+      <resultValueStddev>20.346</resultValueStddev>
+      <resultValueX>6.028</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="read-map-write">
+      <operation>READ_WRITE</operation>
+      <resultIterations>170808</resultIterations>
+      <resultTime>23.918</resultTime>
+      <resultValue>7141.517</resultValue>
+      <resultValueStddev>5.178</resultValueStddev>
+      <resultValueX>12.057</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+  </driver>
+  <driver name="FlexJson/databind">
+    <driverClass>com.fasterxml.jvmjsonperf.twitter.FlexjsonDriverDatabind</driverClass>
+    <resultAritMean>3619.156</resultAritMean>
+    <resultAritMeanStddev>3.479</resultAritMeanStddev>
+    <resultAritMeanX>8.038</resultAritMeanX>
+    <resultAritMeanXStddev>0</resultAritMeanXStddev>
+    <resultGeomMean>3342.941</resultGeomMean>
+    <resultGeomMeanStddev>2.911</resultGeomMeanStddev>
+    <resultGeomMeanX>7.595</resultGeomMeanX>
+    <resultGeomMeanXStddev>0</resultGeomMeanXStddev>
+    <resultHarmMean>3085.257</resultHarmMean>
+    <resultHarmMeanStddev>2.298</resultHarmMeanStddev>
+    <resultHarmMeanX>7.234</resultHarmMeanX>
+    <resultHarmMeanXStddev>0</resultHarmMeanXStddev>
+    <description xmlns="">Uses FlexJson via data-binding</description>
+    <testCase name="read-to-object">
+      <operation>READ</operation>
+      <resultIterations>80814.667</resultIterations>
+      <resultTime>23.916</resultTime>
+      <resultValue>3379.142</resultValue>
+      <resultValueStddev>4.585</resultValueStddev>
+      <resultValueX>6.028</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="write-from-object">
+      <operation>WRITE</operation>
+      <resultIterations>130333.667</resultIterations>
+      <resultTime>23.916</resultTime>
+      <resultValue>5449.663</resultValue>
+      <resultValueStddev>4.708</resultValueStddev>
+      <resultValueX>6.028</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="read-map-write">
+      <operation>READ_WRITE</operation>
+      <resultIterations>48512.667</resultIterations>
+      <resultTime>23.914</resultTime>
+      <resultValue>2028.663</resultValue>
+      <resultValueStddev>1.143</resultValueStddev>
+      <resultValueX>12.057</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+  </driver>
+  <driver name="JSON-tools/databind">
+    <driverClass>com.fasterxml.jvmjsonperf.twitter.JsontoolsDriverDatabind</driverClass>
+    <resultAritMean>1871.371</resultAritMean>
+    <resultAritMeanStddev>2.022</resultAritMeanStddev>
+    <resultAritMeanX>8.038</resultAritMeanX>
+    <resultAritMeanXStddev>0</resultAritMeanXStddev>
+    <resultGeomMean>1512.502</resultGeomMean>
+    <resultGeomMeanStddev>1.865</resultGeomMeanStddev>
+    <resultGeomMeanX>7.595</resultGeomMeanX>
+    <resultGeomMeanXStddev>0</resultGeomMeanXStddev>
+    <resultHarmMean>1278.237</resultHarmMean>
+    <resultHarmMeanStddev>1.73</resultHarmMeanStddev>
+    <resultHarmMeanX>7.234</resultHarmMeanX>
+    <resultHarmMeanXStddev>0</resultHarmMeanXStddev>
+    <description xmlns="">Uses tools via data-binding</description>
+    <testCase name="read-to-object">
+      <operation>READ</operation>
+      <resultIterations>26703.667</resultIterations>
+      <resultTime>23.912</resultTime>
+      <resultValue>1116.733</resultValue>
+      <resultValueStddev>1.733</resultValueStddev>
+      <resultValueX>6.028</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="write-from-object">
+      <operation>WRITE</operation>
+      <resultIterations>87227.667</resultIterations>
+      <resultTime>23.911</resultTime>
+      <resultValue>3648.047</resultValue>
+      <resultValueStddev>3.141</resultValueStddev>
+      <resultValueX>6.028</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+    <testCase name="read-map-write">
+      <operation>READ_WRITE</operation>
+      <resultIterations>20309.667</resultIterations>
+      <resultTime>23.912</resultTime>
+      <resultValue>849.333</resultValue>
+      <resultValueStddev>1.192</resultValueStddev>
+      <resultValueX>12.057</resultValueX>
+      <resultValueXStddev>0</resultValueXStddev>
+    </testCase>
+  </driver>
+</testSuiteReport>

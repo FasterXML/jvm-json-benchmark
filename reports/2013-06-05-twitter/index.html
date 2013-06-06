@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:extrep="http://www.sun.com/japex/extendedTestSuiteReport" xmlns:suite="http://www.sun.com/japex/testSuite" xmlns:rep="http://www.sun.com/japex/testSuiteReport" xmlns="http://www.w3.org/1999/xhtml">
+<link href="report.css" type="text/css" rel="stylesheet"/>
+<body>
+<table border="0" cellpadding="2">
+<tr>
+<td valign="middle" width="90">
+<p>
+<a href="https://japex.dev.java.net">
+<img src="small_japex.gif" align="middle" border="0"/>
+</a>
+</p>
+</td>
+<td valign="middle">
+<h1>Japex Report: JSON read/write test</h1>
+</td>
+</tr>
+</table>
+<h2>Global Parameters</h2>
+<ul>
+<li>configFile: <a href="japex3690138448027225629.xml">japex3690138448027225629.xml</a>
+</li>
+<li>chartType: barchart</li>
+<li>dateTime: 05 Jun 2013/18:59:24 PDT</li>
+<li>dummyResult: 14</li>
+<li>hostName: TS-MacMini.local</li>
+<li>inputDir: /opt/java/jvm-json-benchmark/twitter-test/data/</li>
+<li>namedClassPath: maven.test.classpath</li>
+<li>numberOfCpus: 2</li>
+<li>numberOfThreads: 1</li>
+<li>osArchitecture: x86_64</li>
+<li>osName: Mac OS X</li>
+<li>plotDrivers: false</li>
+<li>plotGroupSize: 5</li>
+<li>reportsDirectory: reports</li>
+<li>resultAxis: normal</li>
+<li>resultAxisX: normal</li>
+<li>resultUnit: tps</li>
+<li>resultUnitX: KB</li>
+<li>runTime: 24</li>
+<li>runsPerDriver: 3</li>
+<li>singleClassLoader: false</li>
+<li>version: 1.2.4</li>
+<li>vmInfo: Oracle Corporation 23.6-b04</li>
+<li>warmupTime: 6</li>
+<li>warmupsPerDriver: 1</li>
+</ul>
+<h2>Result Summary 
+        (tps)</h2>
+<table width="80%" border="1">
+<thead>
+<tr>
+<th width="15%">
+<b>driver</b>
+</th>
+<th>
+<b>resultAritMean</b>
+</th>
+<th>
+<b>resultAritMeanStddev</b>
+</th>
+<th>
+<b>resultAritMeanX</b>
+</th>
+<th>
+<b>resultAritMeanXStddev</b>
+</th>
+<th>
+<b>resultGeomMean</b>
+</th>
+<th>
+<b>resultGeomMeanStddev</b>
+</th>
+<th>
+<b>resultGeomMeanX</b>
+</th>
+<th>
+<b>resultGeomMeanXStddev</b>
+</th>
+<th>
+<b>resultHarmMean</b>
+</th>
+<th>
+<b>resultHarmMeanStddev</b>
+</th>
+<th>
+<b>resultHarmMeanX</b>
+</th>
+<th>
+<b>resultHarmMeanXStddev</b>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">Jackson/databind</td>
+<td align="right">
+<nobr>23046.41</nobr>
+</td>
+<td align="right">
+<nobr>305.014</nobr>
+</td>
+<td align="right">
+<nobr>8.038</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>21811.726</nobr>
+</td>
+<td align="right">
+<nobr>294.681</nobr>
+</td>
+<td align="right">
+<nobr>7.595</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>20586.541</nobr>
+</td>
+<td align="right">
+<nobr>284.123</nobr>
+</td>
+<td align="right">
+<nobr>7.234</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">Fast-JSON/databind</td>
+<td align="right">
+<nobr>13377.242</nobr>
+</td>
+<td align="right">
+<nobr>121.541</nobr>
+</td>
+<td align="right">
+<nobr>7.823</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>12741.854</nobr>
+</td>
+<td align="right">
+<nobr>100.913</nobr>
+</td>
+<td align="right">
+<nobr>7.392</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>12054.7</nobr>
+</td>
+<td align="right">
+<nobr>82.251</nobr>
+</td>
+<td align="right">
+<nobr>7.041</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">GSON/databind</td>
+<td align="right">
+<nobr>7835.682</nobr>
+</td>
+<td align="right">
+<nobr>41.779</nobr>
+</td>
+<td align="right">
+<nobr>7.921</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>7097.795</nobr>
+</td>
+<td align="right">
+<nobr>37.655</nobr>
+</td>
+<td align="right">
+<nobr>7.484</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>6478.291</nobr>
+</td>
+<td align="right">
+<nobr>34.42</nobr>
+</td>
+<td align="right">
+<nobr>7.129</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">Genson/databind</td>
+<td align="right">
+<nobr>12059.572</nobr>
+</td>
+<td align="right">
+<nobr>13.114</nobr>
+</td>
+<td align="right">
+<nobr>8.038</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>11322.077</nobr>
+</td>
+<td align="right">
+<nobr>11.334</nobr>
+</td>
+<td align="right">
+<nobr>7.595</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>10604.275</nobr>
+</td>
+<td align="right">
+<nobr>9.535</nobr>
+</td>
+<td align="right">
+<nobr>7.234</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">FlexJson/databind</td>
+<td align="right">
+<nobr>3619.156</nobr>
+</td>
+<td align="right">
+<nobr>3.479</nobr>
+</td>
+<td align="right">
+<nobr>8.038</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>3342.941</nobr>
+</td>
+<td align="right">
+<nobr>2.911</nobr>
+</td>
+<td align="right">
+<nobr>7.595</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>3085.257</nobr>
+</td>
+<td align="right">
+<nobr>2.298</nobr>
+</td>
+<td align="right">
+<nobr>7.234</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">JSON-tools/databind</td>
+<td align="right">
+<nobr>1871.371</nobr>
+</td>
+<td align="right">
+<nobr>2.022</nobr>
+</td>
+<td align="right">
+<nobr>8.038</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>1512.502</nobr>
+</td>
+<td align="right">
+<nobr>1.865</nobr>
+</td>
+<td align="right">
+<nobr>7.595</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+<td align="right">
+<nobr>1278.237</nobr>
+</td>
+<td align="right">
+<nobr>1.73</nobr>
+</td>
+<td align="right">
+<nobr>7.234</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<br/>
+<center>
+<img src="result.jpg"/>
+</center>
+<br/>
+<br/>
+<h2>Driver: Jackson/databind</h2>
+<p>
+<ul>
+<li>driverClass: com.fasterxml.jvmjsonperf.twitter.JacksonDriverDatabind</li>
+<li>description: Uses Jackson via data-binding</li>
+</ul>
+</p>
+<table width="80%" border="1">
+<thead>
+<tr>
+<th>
+<b>testCase</b>
+</th>
+<th>
+<b>operation</b>
+</th>
+<th>
+<b>resultIterations</b>
+</th>
+<th>
+<b>resultTime</b>
+</th>
+<th>
+<b>resultValue</b>
+</th>
+<th>
+<b>resultValueStddev</b>
+</th>
+<th>
+<b>resultValueX</b>
+</th>
+<th>
+<b>resultValueXStddev</b>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">read-to-object</td>
+<td align="right">
+<nobr>READ</nobr>
+</td>
+<td align="right">
+<nobr>548344</nobr>
+</td>
+<td align="right">
+<nobr>23.894</nobr>
+</td>
+<td align="right">
+<nobr>22949.367</nobr>
+</td>
+<td align="right">
+<nobr>206.922</nobr>
+</td>
+<td align="right">
+<nobr>6.028</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">write-from-object</td>
+<td align="right">
+<nobr>WRITE</nobr>
+</td>
+<td align="right">
+<nobr>765834</nobr>
+</td>
+<td align="right">
+<nobr>23.852</nobr>
+</td>
+<td align="right">
+<nobr>32106.496</nobr>
+</td>
+<td align="right">
+<nobr>312.921</nobr>
+</td>
+<td align="right">
+<nobr>6.028</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">read-map-write</td>
+<td align="right">
+<nobr>READ_WRITE</nobr>
+</td>
+<td align="right">
+<nobr>336463.667</nobr>
+</td>
+<td align="right">
+<nobr>23.891</nobr>
+</td>
+<td align="right">
+<nobr>14083.367</nobr>
+</td>
+<td align="right">
+<nobr>395.198</nobr>
+</td>
+<td align="right">
+<nobr>12.057</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2>Driver: Fast-JSON/databind</h2>
+<p>
+<ul>
+<li>driverClass: com.fasterxml.jvmjsonperf.twitter.FastjsonDriverDatabind</li>
+<li>description: Uses Fast-JSON via data-binding</li>
+</ul>
+</p>
+<table width="80%" border="1">
+<thead>
+<tr>
+<th>
+<b>testCase</b>
+</th>
+<th>
+<b>operation</b>
+</th>
+<th>
+<b>resultIterations</b>
+</th>
+<th>
+<b>resultTime</b>
+</th>
+<th>
+<b>resultValue</b>
+</th>
+<th>
+<b>resultValueStddev</b>
+</th>
+<th>
+<b>resultValueX</b>
+</th>
+<th>
+<b>resultValueXStddev</b>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">read-to-object</td>
+<td align="right">
+<nobr>READ</nobr>
+</td>
+<td align="right">
+<nobr>356999.333</nobr>
+</td>
+<td align="right">
+<nobr>23.9</nobr>
+</td>
+<td align="right">
+<nobr>14936.888</nobr>
+</td>
+<td align="right">
+<nobr>112.224</nobr>
+</td>
+<td align="right">
+<nobr>5.867</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">write-from-object</td>
+<td align="right">
+<nobr>WRITE</nobr>
+</td>
+<td align="right">
+<nobr>408655.333</nobr>
+</td>
+<td align="right">
+<nobr>23.909</nobr>
+</td>
+<td align="right">
+<nobr>17091.729</nobr>
+</td>
+<td align="right">
+<nobr>208.473</nobr>
+</td>
+<td align="right">
+<nobr>5.867</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">read-map-write</td>
+<td align="right">
+<nobr>READ_WRITE</nobr>
+</td>
+<td align="right">
+<nobr>193543.667</nobr>
+</td>
+<td align="right">
+<nobr>23.885</nobr>
+</td>
+<td align="right">
+<nobr>8103.11</nobr>
+</td>
+<td align="right">
+<nobr>43.925</nobr>
+</td>
+<td align="right">
+<nobr>11.734</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2>Driver: GSON/databind</h2>
+<p>
+<ul>
+<li>driverClass: com.fasterxml.jvmjsonperf.twitter.GsonDriverDatabind</li>
+<li>description: Uses GSON via data-binding</li>
+</ul>
+</p>
+<table width="80%" border="1">
+<thead>
+<tr>
+<th>
+<b>testCase</b>
+</th>
+<th>
+<b>operation</b>
+</th>
+<th>
+<b>resultIterations</b>
+</th>
+<th>
+<b>resultTime</b>
+</th>
+<th>
+<b>resultValue</b>
+</th>
+<th>
+<b>resultValueStddev</b>
+</th>
+<th>
+<b>resultValueX</b>
+</th>
+<th>
+<b>resultValueXStddev</b>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">read-to-object</td>
+<td align="right">
+<nobr>READ</nobr>
+</td>
+<td align="right">
+<nobr>302633</nobr>
+</td>
+<td align="right">
+<nobr>23.914</nobr>
+</td>
+<td align="right">
+<nobr>12654.905</nobr>
+</td>
+<td align="right">
+<nobr>69.317</nobr>
+</td>
+<td align="right">
+<nobr>5.94</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">write-from-object</td>
+<td align="right">
+<nobr>WRITE</nobr>
+</td>
+<td align="right">
+<nobr>155829.333</nobr>
+</td>
+<td align="right">
+<nobr>23.918</nobr>
+</td>
+<td align="right">
+<nobr>6515.197</nobr>
+</td>
+<td align="right">
+<nobr>24.223</nobr>
+</td>
+<td align="right">
+<nobr>5.94</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">read-map-write</td>
+<td align="right">
+<nobr>READ_WRITE</nobr>
+</td>
+<td align="right">
+<nobr>103716.333</nobr>
+</td>
+<td align="right">
+<nobr>23.915</nobr>
+</td>
+<td align="right">
+<nobr>4336.945</nobr>
+</td>
+<td align="right">
+<nobr>31.798</nobr>
+</td>
+<td align="right">
+<nobr>11.881</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2>Driver: Genson/databind</h2>
+<p>
+<ul>
+<li>driverClass: com.fasterxml.jvmjsonperf.twitter.GensonDriverDatabind</li>
+<li>description: Uses Genson via data-binding</li>
+</ul>
+</p>
+<table width="80%" border="1">
+<thead>
+<tr>
+<th>
+<b>testCase</b>
+</th>
+<th>
+<b>operation</b>
+</th>
+<th>
+<b>resultIterations</b>
+</th>
+<th>
+<b>resultTime</b>
+</th>
+<th>
+<b>resultValue</b>
+</th>
+<th>
+<b>resultValueStddev</b>
+</th>
+<th>
+<b>resultValueX</b>
+</th>
+<th>
+<b>resultValueXStddev</b>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">read-to-object</td>
+<td align="right">
+<nobr>READ</nobr>
+</td>
+<td align="right">
+<nobr>413015.333</nobr>
+</td>
+<td align="right">
+<nobr>23.918</nobr>
+</td>
+<td align="right">
+<nobr>17268.094</nobr>
+</td>
+<td align="right">
+<nobr>13.818</nobr>
+</td>
+<td align="right">
+<nobr>6.028</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">write-from-object</td>
+<td align="right">
+<nobr>WRITE</nobr>
+</td>
+<td align="right">
+<nobr>281487</nobr>
+</td>
+<td align="right">
+<nobr>23.917</nobr>
+</td>
+<td align="right">
+<nobr>11769.106</nobr>
+</td>
+<td align="right">
+<nobr>20.346</nobr>
+</td>
+<td align="right">
+<nobr>6.028</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">read-map-write</td>
+<td align="right">
+<nobr>READ_WRITE</nobr>
+</td>
+<td align="right">
+<nobr>170808</nobr>
+</td>
+<td align="right">
+<nobr>23.918</nobr>
+</td>
+<td align="right">
+<nobr>7141.517</nobr>
+</td>
+<td align="right">
+<nobr>5.178</nobr>
+</td>
+<td align="right">
+<nobr>12.057</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2>Driver: FlexJson/databind</h2>
+<p>
+<ul>
+<li>driverClass: com.fasterxml.jvmjsonperf.twitter.FlexjsonDriverDatabind</li>
+<li>description: Uses FlexJson via data-binding</li>
+</ul>
+</p>
+<table width="80%" border="1">
+<thead>
+<tr>
+<th>
+<b>testCase</b>
+</th>
+<th>
+<b>operation</b>
+</th>
+<th>
+<b>resultIterations</b>
+</th>
+<th>
+<b>resultTime</b>
+</th>
+<th>
+<b>resultValue</b>
+</th>
+<th>
+<b>resultValueStddev</b>
+</th>
+<th>
+<b>resultValueX</b>
+</th>
+<th>
+<b>resultValueXStddev</b>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">read-to-object</td>
+<td align="right">
+<nobr>READ</nobr>
+</td>
+<td align="right">
+<nobr>80814.667</nobr>
+</td>
+<td align="right">
+<nobr>23.916</nobr>
+</td>
+<td align="right">
+<nobr>3379.142</nobr>
+</td>
+<td align="right">
+<nobr>4.585</nobr>
+</td>
+<td align="right">
+<nobr>6.028</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">write-from-object</td>
+<td align="right">
+<nobr>WRITE</nobr>
+</td>
+<td align="right">
+<nobr>130333.667</nobr>
+</td>
+<td align="right">
+<nobr>23.916</nobr>
+</td>
+<td align="right">
+<nobr>5449.663</nobr>
+</td>
+<td align="right">
+<nobr>4.708</nobr>
+</td>
+<td align="right">
+<nobr>6.028</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">read-map-write</td>
+<td align="right">
+<nobr>READ_WRITE</nobr>
+</td>
+<td align="right">
+<nobr>48512.667</nobr>
+</td>
+<td align="right">
+<nobr>23.914</nobr>
+</td>
+<td align="right">
+<nobr>2028.663</nobr>
+</td>
+<td align="right">
+<nobr>1.143</nobr>
+</td>
+<td align="right">
+<nobr>12.057</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2>Driver: JSON-tools/databind</h2>
+<p>
+<ul>
+<li>driverClass: com.fasterxml.jvmjsonperf.twitter.JsontoolsDriverDatabind</li>
+<li>description: Uses tools via data-binding</li>
+</ul>
+</p>
+<table width="80%" border="1">
+<thead>
+<tr>
+<th>
+<b>testCase</b>
+</th>
+<th>
+<b>operation</b>
+</th>
+<th>
+<b>resultIterations</b>
+</th>
+<th>
+<b>resultTime</b>
+</th>
+<th>
+<b>resultValue</b>
+</th>
+<th>
+<b>resultValueStddev</b>
+</th>
+<th>
+<b>resultValueX</b>
+</th>
+<th>
+<b>resultValueXStddev</b>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">read-to-object</td>
+<td align="right">
+<nobr>READ</nobr>
+</td>
+<td align="right">
+<nobr>26703.667</nobr>
+</td>
+<td align="right">
+<nobr>23.912</nobr>
+</td>
+<td align="right">
+<nobr>1116.733</nobr>
+</td>
+<td align="right">
+<nobr>1.733</nobr>
+</td>
+<td align="right">
+<nobr>6.028</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">write-from-object</td>
+<td align="right">
+<nobr>WRITE</nobr>
+</td>
+<td align="right">
+<nobr>87227.667</nobr>
+</td>
+<td align="right">
+<nobr>23.911</nobr>
+</td>
+<td align="right">
+<nobr>3648.047</nobr>
+</td>
+<td align="right">
+<nobr>3.141</nobr>
+</td>
+<td align="right">
+<nobr>6.028</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+<tr>
+<td align="right">read-map-write</td>
+<td align="right">
+<nobr>READ_WRITE</nobr>
+</td>
+<td align="right">
+<nobr>20309.667</nobr>
+</td>
+<td align="right">
+<nobr>23.912</nobr>
+</td>
+<td align="right">
+<nobr>849.333</nobr>
+</td>
+<td align="right">
+<nobr>1.192</nobr>
+</td>
+<td align="right">
+<nobr>12.057</nobr>
+</td>
+<td align="right">
+<nobr>0</nobr>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<h2>Results Per Test</h2>
+<br/>
+<center>
+<img src="testcase0.jpg"/>
+</center>
+<br/>
+<br/>
+<br/>
+<small>
+<hr/>
+<font size="-2">
+                        Generated using <a href="https://japex.dev.java.net">Japex</a> version 
+                        1.2.4</font>
+</small>
+</body>
+</html>
