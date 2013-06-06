@@ -8,7 +8,7 @@
   </parent>
   <groupId>com.fasterxml.perf</groupId>
   <artifactId>jvm-json-benchmark-core</artifactId>
-  <name>JVM JSON Benchmark</name>
+  <name>JSON Benchmark Core</name>
   <description>Actual benchmark suite, test classes
   </description>
 
