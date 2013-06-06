@@ -39,10 +39,10 @@
               <japexConfig>
                 <testSuite name="JSON read/write test" xmlns="http://www.sun.com/japex/testSuite">
                   <param name="japex.namedClassPath" value="maven.test.classpath"/>
-                  <param name="japex.warmupTime" value="4"/>
-                  <param name="japex.runTime" value="30"/>
+                  <param name="japex.warmupTime" value="6"/>
+                  <param name="japex.runTime" value="24"/>
                   <param name="japex.runsPerDriver" value="3"/>
-                  <param name="japex.inputDir" value="data/"/>
+                  <param name="japex.inputDir" value="${project.basedir}/data/"/>
 
                   <driver name="Jackson/databind">
                     <param name="description" value="Uses Jackson via data-binding"/>
