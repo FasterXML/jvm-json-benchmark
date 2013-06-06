@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jvm-json-benchmark by FasterXML</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Jvm-json-benchmark</h1>
+        <p>Performance benchmark suite that compares data-binding (JSON&lt;-&gt;POJO) performance of Java JSON libraries. Uses Japex benchmark framework for running tests and visualizing results.</p>
+
+        <p class="view"><a href="https://github.com/FasterXML/jvm-json-benchmark">View the Project on GitHub <small>FasterXML/jvm-json-benchmark</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/FasterXML/jvm-json-benchmark/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/FasterXML/jvm-json-benchmark/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/FasterXML/jvm-json-benchmark">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="benchmark-for-comparing-json-performance-on-java-platform" class="anchor" href="#benchmark-for-comparing-json-performance-on-java-platform"><span class="octicon octicon-link"></span></a>Benchmark for comparing JSON performance on Java platform</h1>
+
+<p>This project contains benchmark suite for comparing performance of JSON-to/from-POJOs
+data binding, using various Java JSON libraries.</p>
+
+<h2>
+<a name="basics" class="anchor" href="#basics"><span class="octicon octicon-link"></span></a>Basics</h2>
+
+<p>Libraries included are mostly ones that can do fully automatic data-binding; but in some
+cases we may also include ones that only implement Tree-based processing, in which case
+additional manual coding is required.
+We may also include tree-based variants of data-binding - capable libraries in cases where that makes sense.
+In all cases we indicate processing-module uses (which indicates level-of-effort for using
+library for data-binding use cases).</p>
+
+<h2>
+<a name="test-framework" class="anchor" href="#test-framework"><span class="octicon octicon-link"></span></a>Test framework</h2>
+
+<p>Tests use Japex, since it</p>
+
+<ol>
+<li>Is designed for full benchmark runs (not just micro-benchmarks), and</li>
+<li>It provides full JVM isolation between tests, to avoid Hot-Spot problems wrt multiple competing implementations</li>
+</ol><p>Some attempts were made to use Caliper, which has some promising features; but in the end
+Japex proved bit more mature for this specific use case.
+But we may try out other frameworks in future.</p>
+
+<h2>
+<a name="results" class="anchor" href="#results"><span class="octicon octicon-link"></span></a>Results</h2>
+
+<p>None published yet -- Stay Tuned!</p>
+
+<h2>
+<a name="libraries-included" class="anchor" href="#libraries-included"><span class="octicon octicon-link"></span></a>Libraries included</h2>
+
+<h3>
+<a name="fastjson" class="anchor" href="#fastjson"><span class="octicon octicon-link"></span></a>Fastjson</h3>
+
+<ul>
+<li>Home page: <a href="https://github.com/alibaba/fastjson">https://github.com/alibaba/fastjson</a>
+</li>
+<li>Version tested: 1.1.30</li>
+</ul><p>Tested with default settings; except configured NOT to check for cyclic dependencies (as that
+adds overhead).
+Library apparently can not take streaming input, so code has to read all content in; this
+is done using simple copy (which gives slight advantage compared to having to do it the
+usual way); but should not change results drastically.</p>
+
+<h3>
+<a name="flex-json" class="anchor" href="#flex-json"><span class="octicon octicon-link"></span></a>Flex-JSON</h3>
+
+<ul>
+<li>Home page: <a href="http://sourceforge.net/projects/flexjson">http://sourceforge.net/projects/flexjson</a>
+</li>
+<li>Version tested: 2.1</li>
+</ul><p>NOTE: version 3.0 appears to be available, but I could not make it work.
+2.1 appears to be the official publicly available version.</p>
+
+<h3>
+<a name="genson" class="anchor" href="#genson"><span class="octicon octicon-link"></span></a>Genson</h3>
+
+<ul>
+<li>Home page: <a href="http://code.google.com/p/genson/">http://code.google.com/p/genson/</a>
+</li>
+<li>Version tested: 0.94</li>
+</ul><p>Similar to GSON, need to use JDK <code>InputStreamReader</code>. In addition, output only as <code>String</code>, which
+is then written using <code>OutputStreamWriter</code>.</p>
+
+<h3>
+<a name="gson" class="anchor" href="#gson"><span class="octicon octicon-link"></span></a>GSON</h3>
+
+<ul>
+<li>Home page: <a href="http://code.google.com/p/google-gson/">http://code.google.com/p/google-gson/</a>)</li>
+<li>Version tested: 2.2</li>
+</ul><p>Tested in basic data-binding mode, with default configuration.</p>
+
+<p>GSON does not take <code>InputStream</code> or <code>OutputStream</code>,
+so input is read using standard JDK <code>InputStreamReader</code> (with UTF-8)
+and output <code>OutputStreamWriter</code>.</p>
+
+<h3>
+<a name="jackson" class="anchor" href="#jackson"><span class="octicon octicon-link"></span></a>Jackson</h3>
+
+<ul>
+<li>Home page: <a href="https://github.com/FasterXML/jackson">https://github.com/FasterXML/jackson</a>
+</li>
+<li>Version tested: 2.2</li>
+</ul><p>Tested in basic data-binding mode, with default configuration.</p>
+
+<p>Note that tests does NOT use <a href="https://github.com/FasterXML/jackson-module-afterburner">Afterburner</a> module (which could increase speed by 30-40%)
+as the intent is to compare default implementations, configurations.
+A separate test driver may be added in future to test such variation.</p>
+
+<h3>
+<a name="json-tools" class="anchor" href="#json-tools"><span class="octicon octicon-link"></span></a>JSON-tools</h3>
+
+<ul>
+<li>Home page: <a href="http://jsontools.berlios.de/">http://jsontools.berlios.de/</a>
+</li>
+<li>Version tested: 1.7</li>
+</ul><p>Seems to require two-phase process for reading (with <code>JSONParser</code> from <code>InputStream</code>, into <code>JSONValue</code>;
+then mapped using <code>JSONMapper</code>.
+Similarly writing has to be done using an intermediate <code>String</code> -- inefficient, but that's what API expects.</p>
+
+<h2>
+<a name="libraries-not-included" class="anchor" href="#libraries-not-included"><span class="octicon octicon-link"></span></a>Libraries not included</h2>
+
+<p>Following libraries were considered for inclusion, but had to be excluded for some reason.</p>
+
+<h3>
+<a name="json-lib" class="anchor" href="#json-lib"><span class="octicon octicon-link"></span></a>Json-lib</h3>
+
+<ul>
+<li>Home page: <a href="http://json-lib.sourceforge.net">http://json-lib.sourceforge.net</a>
+</li>
+<li>Version: 2.4</li>
+</ul><p>This library is sort-of kind-of capable of data-binding, but requires lots of additional configuration and
+registration of types (see <code>JsonLibJsonDatabind.java</code> of <a href="https://github.com/eishay/jvm-serializers">JVM-serializers</a>
+for details); so it seems more hassle than worth.
+Performance, as per jvm-serializers, also does not rank anywhere near top of Java JSON libraries, so this does not seem like a big omission.</p>
+
+<h3>
+<a name="json-smart" class="anchor" href="#json-smart"><span class="octicon octicon-link"></span></a>Json-smart</h3>
+
+<ul>
+<li>Home page: <a href="http://code.google.com/p/json-smart/">http://code.google.com/p/json-smart/</a>
+</li>
+<li>Version tested: 2.0-RC2</li>
+</ul><p>Simply, does not work. Although I found a way that should allow Bean conversions, code just mysteriously
+fails with a class-loading error.</p>
+
+<p>If anyone can suggest a fix or work-around, I will be happy to include this in tests as well.
+Results from sources other than project home page suggest not-so-stellar performance (like jvm-serializers).</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/FasterXML">FasterXML</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
