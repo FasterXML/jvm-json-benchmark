@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion> 
+  <parent>
+    <groupId>com.fasterxml.perf</groupId>
+    <artifactId>jvm-json-benchmark-parent</artifactId>
+    <version>0.5.0-SNAPSHOT</version>
+  </parent>
+  <groupId>com.fasterxml.perf</groupId>
+  <artifactId>jvm-json-benchmark-twitter</artifactId>
+  <name>JSON Benchmark Twitter test</name>
+  <description>Test run with Twitter sample tweets
+  </description>
+
+  <dependencies>
+    <!-- First, underlying test framework(s): japex and/or caliper -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jvm-json-benchmark-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.sun.japex</groupId>
+        <artifactId>japex-maven-plugin</artifactId>
+        <version>${japex.version}</version>
+        <executions>
+              <execution>
+                <phase>install</phase>
+                <id>japex</id>
+                <goals><goal>japex</goal></goals>
+              </execution>
+            </executions>
+            <configuration>
+              <japexConfig>
+                <testSuite name="JSON read/write test" xmlns="http://www.sun.com/japex/testSuite">
+                  <param name="japex.namedClassPath" value="maven.test.classpath"/>
+                  <param name="japex.warmupTime" value="4"/>
+                  <param name="japex.runTime" value="30"/>
+                  <param name="japex.runsPerDriver" value="3"/>
+                  <param name="japex.inputDir" value="data/"/>
+
+                  <driver name="Jackson/databind">
+                    <param name="description" value="Uses Jackson via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.JacksonDriverDatabind"/>
+                  </driver>
+                  <driver name="Fast-JSON/databind">
+                    <param name="description" value="Uses Fast-JSON via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.FastjsonDriverDatabind"/>
+                  </driver>
+                  <driver name="GSON/databind">
+                    <param name="description" value="Uses GSON via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.GsonDriverDatabind"/>
+                  </driver>
+                  <driver name="Genson/databind">
+                    <param name="description" value="Uses Genson via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.GensonDriverDatabind"/>
+                  </driver>
+                  <driver name="FlexJson/databind">
+                    <param name="description" value="Uses FlexJson via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.FlexjsonDriverDatabind"/>
+                  </driver>
+                  <driver name="JSON-Smart/databind">
+                    <param name="description" value="Uses JSON-Smart via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.JsonsmartDriverDatabind"/>
+                  </driver>
+                  <driver name="JSON-tools/databind">
+                    <param name="description" value="Uses tools via data-binding"/>
+                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.JsontoolsDriverDatabind"/>
+                  </driver>
+
+                  <testCase name="read-to-object">
+                    <param name="japex.operation" value="READ" />
+                  </testCase>
+                  <testCase name="write-from-object">
+                    <param name="japex.operation" value="WRITE" />
+                  </testCase>
+                  <testCase name="read-map-write">
+                    <param name="japex.operation" value="READ_WRITE" />
+                  </testCase>
+                </testSuite>
+              </japexConfig>
+            </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>

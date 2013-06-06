@@ -15,7 +15,12 @@
   </description>
 
   <modules>
-    <module>core</module> <!-- core benchmark classes -->
+    <!-- core benchmark classes -->
+    <module>core</module>
+
+    <!-- various test runs -->
+    <module>twitter-test</module>
+
   </modules>
   <url>https://github.com/FasterXML/jvm-json-benchmark</url>
   <scm>
