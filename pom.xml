@@ -7,11 +7,16 @@
     <version>7</version>
   </parent>
   <groupId>com.fasterxml.perf</groupId>
-  <artifactId>jvm-json-benchmark</artifactId>
+  <artifactId>jvm-json-benchmark-parent</artifactId>
   <name>JVM JSON Benchmark</name>
   <version>0.5.0-SNAPSHOT</version>
-  <description>Benchmark suite for comparing Java JSON libraries wrt data-binding performance
+  <packaging>pom</packaging>
+  <description>Parent POM for Benchmark suite for comparing Java JSON libraries wrt data-binding performance
   </description>
+
+  <modules>
+    <module>core</module> <!-- core benchmark classes -->
+  </modules>
   <url>https://github.com/FasterXML/jvm-json-benchmark</url>
   <scm>
     <connection>scm:git:git@github.com:FasterXML/jvm-json-benchmark.git</connection>
@@ -34,186 +39,4 @@
     <xstream.version>1.4.4</xstream.version>
   </properties>
 
-  <dependencies>
-    <!-- First, underlying test framework(s): japex and/or caliper -->
-    <dependency>
-      <groupId>com.sun.japex</groupId>
-      <artifactId>japex</artifactId>
-      <version>${japex.version}</version>
-    </dependency>
-	<dependency>
-	  <groupId>com.google.caliper</groupId>
-	  <artifactId>caliper</artifactId>
-	  <version>1.0-beta-1</version>
-	</dependency>
-
-    <!-- Jackson core libs; enough to depend on databind -->
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
-    <dependency> <!--  but needs Smile backend, if we are to test it? -->
-      <groupId>com.fasterxml.jackson.dataformat</groupId>
-      <artifactId>jackson-dataformat-smile</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
-
-    <!--  GSON -->
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>${gson.version}</version>
-    </dependency>
-    <!-- JSON tools -->
-    <dependency>
-      <groupId>com.sdicons.jsontools</groupId>
-      <artifactId>jsontools-core</artifactId>
-      <version>${jsontools.version}</version>
-    </dependency>
-    <!--  Flex JSON -->
-    <dependency>
-      <groupId>net.sf.flexjson</groupId>
-      <artifactId>flexjson</artifactId>
-      <version>${flexjson.version}</version>
-    </dependency>
-    <!--  Genson -->
-    <dependency>
-      <groupId>com.owlike</groupId>
-      <artifactId>genson</artifactId>
-      <version>${genson.version}</version>
-    </dependency>
-    <!--  JSON-smart -->
-    <dependency>
-      <groupId>net.minidev</groupId>
-      <artifactId>json-smart</artifactId>
-      <version>2.0-RC2</version>
-    </dependency>
-
-    <!--  fast-json -->
-    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>fastjson</artifactId>
-      <version>${fastjson.version}</version>
-    </dependency>
-
-    <!--  XStream? (really) -->
-    <dependency>
-      <groupId>com.thoughtworks.xstream</groupId>
-      <artifactId>xstream</artifactId>
-      <version>${xstream.version}</version>
-    </dependency>
-
-  </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>com.sun.japex</groupId>
-        <artifactId>japex-maven-plugin</artifactId>
-        <version>${japex.version}</version>
-        <executions>
-              <execution>
-                <phase>deploy</phase>
-                <id>japex</id>
-                <goals><goal>japex</goal></goals>
-              </execution>
-            </executions>
-            <configuration>
-              <japexConfig>
-                <testSuite name="JSON read/write test" xmlns="http://www.sun.com/japex/testSuite">
-                  <param name="japex.namedClassPath" value="maven.test.classpath"/>
-                  <param name="japex.warmupTime" value="4"/>
-                  <param name="japex.runTime" value="30"/>
-                  <param name="japex.runsPerDriver" value="1"/>
-                  <param name="japex.inputDir" value="data/twitter/"/>
-
-                  <driver name="Jackson/databind">
-                    <param name="description" value="Uses Jackson via data-binding"/>
-                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.JacksonDriverDatabind"/>
-                  </driver>
-                  <driver name="Fast-JSON/databind">
-                    <param name="description" value="Uses Fast-JSON via data-binding"/>
-                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.FastjsonDriverDatabind"/>
-                  </driver>
-                  <driver name="GSON/databind">
-                    <param name="description" value="Uses GSON via data-binding"/>
-                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.GsonDriverDatabind"/>
-                  </driver>
-                  <driver name="Genson/databind">
-                    <param name="description" value="Uses Genson via data-binding"/>
-                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.GensonDriverDatabind"/>
-                  </driver>
-                  <driver name="FlexJson/databind">
-                    <param name="description" value="Uses FlexJson via data-binding"/>
-                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.FlexjsonDriverDatabind"/>
-                  </driver>
-                  <driver name="JSON-Smart/databind">
-                    <param name="description" value="Uses JSON-Smart via data-binding"/>
-                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.JsonsmartDriverDatabind"/>
-                  </driver>
-                  <driver name="JSON-tools/databind">
-                    <param name="description" value="Uses tools via data-binding"/>
-                    <param name="japex.driverClass" value="com.fasterxml.jvmjsonperf.twitter.JsontoolsDriverDatabind"/>
-                  </driver>
-
-                  <testCase name="read-to-object">
-                    <param name="japex.operation" value="READ" />
-                  </testCase>
-                  <testCase name="write-from-object">
-                    <param name="japex.operation" value="WRITE" />
-                  </testCase>
-                  <testCase name="read-map-write">
-                    <param name="japex.operation" value="READ_WRITE" />
-                  </testCase>
-                </testSuite>
-              </japexConfig>
-            </configuration>
-      </plugin>
-
-      <!-- With Caliper, easiest to build a fat jar
-        -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>1.6</version>
-        <configuration>
-          <createDependencyReducedPom>true</createDependencyReducedPom>
-          <filters>
-            <filter>
-                <artifact>*:*</artifact>
-                <excludes>
-                    <exclude>META-INF/*.SF</exclude>
-                    <exclude>META-INF/*.DSA</exclude>
-                    <exclude>META-INF/*.RSA</exclude>
-                </excludes>
-            </filter>
-          </filters>
-        </configuration>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-                <goal>shade</goal>
-            </goals>
-            <configuration>
-                <createSourcesJar>true</createSourcesJar>
-                <transformers>
-                    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
-                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                        <mainClass>com.fasterxml.jvmjsonperf.CaliperLauncher</mainClass>
-  <!-- as per Caliper's build -->
-                        <manifestEntries>
-                    <Premain-Class>com.google.monitoring.runtime.instrumentation.AllocationInstrumenter</Premain-Class>
-                    <Can-Redefine-Classes>true</Can-Redefine-Classes>
-                    <Can-Retransform-Classes>true</Can-Retransform-Classes>
-                        </manifestEntries>
-                    </transformer>
-                </transformers>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
 </project>
