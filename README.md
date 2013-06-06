@@ -74,6 +74,10 @@ and output `OutputStreamWriter`.
 
 Tested in basic data-binding mode, with default configuration.
 
+Note that tests does NOT use [Afterburner](https://github.com/FasterXML/jackson-module-afterburner) module (which could increase speed by 30-40%)
+as the intent is to compare default implementations, configurations.
+A separate test driver may be added in future to test such variation.
+
 ### JSON-tools
 
 * Home page: http://jsontools.berlios.de/
