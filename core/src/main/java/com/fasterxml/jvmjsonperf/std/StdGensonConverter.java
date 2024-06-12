@@ -3,7 +3,6 @@ package com.fasterxml.jvmjsonperf.std;
 import java.io.*;
 
 import com.owlike.genson.Genson;
-import com.owlike.genson.TransformationException;
 
 import com.fasterxml.jvmjsonperf.StdConverter;
 import com.fasterxml.jvmjsonperf.StdItem;
@@ -26,18 +25,14 @@ public class StdGensonConverter<T extends StdItem<T>>
     }
 
     @Override
-    public T readData(InputStream in) throws IOException
+    public T readData(InputStream in)
     {
         // Alas, Genson can't eat InputStreams either?
-        try {
-            return _genson.deserialize(in, _itemClass);
-        } catch (TransformationException e) {
-            throw new IOException(e.getMessage(), e);
-        }
+        return _genson.deserialize(in, _itemClass);
     }
     
     @Override
-    public int writeData(OutputStream out, T data) throws Exception
+    public int writeData(OutputStream out, T data)
     {
         _genson.serialize(data, out);
         return -1;
