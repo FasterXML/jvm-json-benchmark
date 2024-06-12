@@ -42,7 +42,7 @@ public class TwitterCaliperReadTest
     public Object timeJacksonDatabind(long reps) throws Exception
     {
         if (_jacksonReader == null) {
-            _jacksonReader = new ObjectMapper().reader(TwitterSearch.class);
+            _jacksonReader = new ObjectMapper().readerFor(TwitterSearch.class);
         }
         TwitterSearch result = null;
         
@@ -120,21 +120,6 @@ public class TwitterCaliperReadTest
         return result;
     }
 
-    // TODO: enable if/when it works:
-    protected net.minidev.json.mapper.AMapper<TwitterSearch> _jsonSmartMapper;
-    
-    public Object XXXtimeJsonSmart(long reps) throws Exception
-    {
-        if (_jsonSmartMapper == null) {
-            _jsonSmartMapper = net.minidev.json.mapper.Mapper.getMapper(TwitterSearch.class);
-        }
-        TwitterSearch result = null;
-        while (--reps >= 0) {
-            result = net.minidev.json.JSONValue.parse(inputStream(),TwitterSearch.class);
-        }
-        return result;
-    }
-    
     /*
     /**********************************************************************
     /* Internal methods
